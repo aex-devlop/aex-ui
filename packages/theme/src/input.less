@@ -1,0 +1,366 @@
+@import 'common/var';
+@import 'common/mixins';
+
+.aex-textarea {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	vertical-align: bottom;
+	font-size: @--input-font-size;
+
+	&__inner {
+		display: block;
+		resize: vertical;
+		padding: 5px 15px 18px;
+		line-height: 1.5;
+		box-sizing: border-box;
+		width: 100%;
+		font-size: inherit;
+		color: @--input-font-color;
+		background-color: @--input-background-color;
+		background-image: none;
+		border: @--input-border;
+		border-radius: @--input-border-radius;
+		transition: @--border-transition-base;
+
+		&::placeholder {
+			color: @--input-placeholder-color;
+		}
+
+		&:hover {
+			border-color: @--input-hover-border;
+		}
+
+		&:focus {
+			outline: none;
+			border-color: @--input-focus-border;
+		}
+	}
+
+	& .aex-input__count {
+		color: @--color-gray-light-3;
+		background: rgba(@--color-white, 0.7);
+		position: absolute;
+		font-size: 12px;
+		bottom: 4px;
+		right: 20px;
+	}
+
+	&.is-disabled {
+		.aex-textarea__inner {
+			background-color: @--input-disabled-fill;
+			border-color: @--input-disabled-border;
+			color: @--input-disabled-color;
+			cursor: not-allowed;
+
+			&::placeholder {
+				color: @--input-disabled-placeholder-color;
+			}
+		}
+	}
+
+	&.is-exceed {
+		.aex-textarea__inner {
+			border-color: @--color-danger;
+		}
+
+		.aex-input__count {
+			color: @--color-danger;
+			font-weight: bold;
+		}
+	}
+}
+
+.aex-input {
+	position: relative;
+	font-size: @--input-font-size;
+	display: inline-block;
+	width: 100%;
+	.mixins-scroll-bar();
+
+	& .aex-input__clear {
+		color: @--input-icon-color;
+		font-size: @--input-font-size;
+		cursor: pointer;
+		transition: @--color-transition-base;
+
+		&:hover {
+			color: @--input-clear-hover-color;
+		}
+	}
+
+	& .aex-input__count {
+		height: 100%;
+		display: inline-flex;
+		align-items: center;
+		color: @--color-gray-light-2;
+		font-size: 12px;
+
+		.aex-input__count-inner {
+			background: @--input-background-color;
+			line-height: initial;
+			display: inline-block;
+			padding: 0 5px;
+		}
+	}
+
+	&__inner {
+		-webkit-appearance: none;
+		background-color: @--input-background-color;
+		background-image: none;
+		border-radius: @--input-border-radius;
+		border: @--input-border;
+		box-sizing: border-box;
+		color: @--input-font-color;
+		display: inline-block;
+		font-size: inherit;
+		height: @--input-height;
+		line-height: @--input-height;
+		outline: none;
+		padding: 0 15px;
+		transition: @--border-transition-base;
+		width: 100%;
+
+		&::-ms-reveal {
+			display: none;
+		}
+
+		&::placeholder {
+			color: @--input-placeholder-color;
+		}
+
+		&:hover {
+			border-color: @--input-hover-border;
+		}
+
+		&:focus {
+			outline: none;
+			border-color: @--input-focus-border;
+		}
+	}
+
+	&__suffix {
+		position: absolute;
+		height: 100%;
+		right: 5px;
+		top: 0;
+		text-align: center;
+		color: @--input-icon-color;
+		transition: all 0.3s;
+		pointer-events: none;
+	}
+
+	&__suffix-inner {
+		pointer-events: all;
+	}
+
+	&__prefix {
+		position: absolute;
+		height: 100%;
+		left: 5px;
+		top: 0;
+		text-align: center;
+		color: @--input-icon-color;
+		transition: all 0.3s;
+	}
+
+	&__icon {
+		height: 100%;
+		width: 25px;
+		text-align: center;
+		transition: all 0.3s;
+		line-height: @--input-height;
+
+		&:after {
+			content: '';
+			height: 100%;
+			width: 0;
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+	&__validateIcon {
+		pointer-events: none;
+	}
+	&.is-active {
+		.aex-input__inner {
+			outline: none;
+			border-color: @--input-focus-border;
+		}
+	}
+	&.is-disabled {
+		.aex-input__inner {
+			background-color: @--input-disabled-fill;
+			border-color: @--input-disabled-border;
+			color: @--input-disabled-color;
+			cursor: not-allowed;
+
+			&::placeholder {
+				color: @--input-disabled-placeholder-color;
+			}
+		}
+
+		.aex-input__icon {
+			cursor: not-allowed;
+		}
+	}
+
+	&.is-exceed {
+		.aex-input__inner {
+			border-color: @--color-danger;
+		}
+
+		.aex-input__suffix {
+			.aex-input__count {
+				color: @--color-danger;
+			}
+		}
+	}
+
+	&--suffix {
+		.aex-input__inner {
+			padding-right: 30px;
+		}
+	}
+	&--prefix {
+		.aex-input__inner {
+			padding-left: 30px;
+		}
+	}
+
+	&--medium {
+		font-size: @--input-medium-font-size;
+
+		.aex-input__inner {
+			height: @--input-medium-height;
+			line-height: @--input-medium-height;
+		}
+
+		.aex-input__icon {
+			line-height: @--input-medium-height;
+		}
+	}
+	&--small {
+		font-size: @--input-small-font-size;
+
+		.aex-input__inner {
+			height: @--input-small-height;
+			line-height: @--input-small-height;
+		}
+
+		.aex-input__icon {
+			line-height: @--input-small-height;
+		}
+	}
+	&--mini {
+		font-size: @--input-mini-font-size;
+
+		.aex-input__inner {
+			height: @--input-mini-height;
+			line-height: @--input-mini-height;
+		}
+
+		.aex-input__icon {
+			line-height: @--input-mini-height;
+		}
+	}
+}
+
+.aex-input-group {
+	line-height: normal;
+	display: inline-table;
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+
+	> .aex-input__inner {
+		vertical-align: middle;
+		display: table-cell;
+	}
+
+	&__append,
+	&__prepend {
+		// background-color: @--background-color-base;
+		color: @--color-gray-light-2;
+		vertical-align: middle;
+		display: table-cell;
+		position: relative;
+		border: @--input-border;
+		border-radius: @--input-border-radius;
+		padding: 0 20px;
+		width: 1px;
+		white-space: nowrap;
+		overflow: hidden;
+
+		&:focus {
+			outline: none;
+		}
+
+		.aex-select,
+		.aex-button {
+			display: inline-block;
+			margin: -10px -20px;
+
+			&:hover,
+			&:focus {
+				background-color: @--color-primary-light-4;
+			}
+			&:active {
+				background-color: @--color-primary-light-3;
+				transform: none;
+			}
+		}
+
+		.aex-button,
+		div.aex-select .aex-input__inner,
+		div.aex-select:hover .aex-input__inner {
+			border-color: transparent;
+			background-color: transparent;
+			color: inherit;
+			border-top: 0;
+			border-bottom: 0;
+		}
+
+		.aex-button,
+		.aex-input {
+			font-size: inherit;
+		}
+	}
+
+	&__prepend {
+		border-right: 0;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	&__append {
+		border-left: 0;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	&--prepend {
+		.aex-input__inner {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+		.aex-select .aex-input.is-focus .aex-input__inner {
+			border-color: transparent;
+		}
+	}
+	&--append {
+		.aex-input__inner {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+		.aex-select .aex-input.is-focus .aex-input__inner {
+			border-color: transparent;
+		}
+	}
+}
+
+// clear 兼容IE
+.aex-input__inner::-ms-clear {
+	display: none;
+	width: 0;
+	height: 0;
+}

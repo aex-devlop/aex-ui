@@ -1,0 +1,44 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "loose": true,
+        "modules": false,
+        "targets": {
+          "browsers": ["> 0.5%", "last 2 versions", "not ie <= 10","not dead"]
+          
+        }
+      }
+    ],
+    "stage-2"
+  ],
+  "plugins": ["transform-vue-jsx"],
+  "env": {
+    "utils": {
+      "presets": [
+        [
+          "env",
+          {
+            "loose": true,
+            "modules": "commonjs",
+            "targets": {
+              "browsers": ["> 0.5%", "last 2 versions", "not ie <= 10", "not dead"]
+            }
+          }
+        ],
+      ],
+      "plugins": [
+        ["module-resolver", {
+          "root": ["aex-ui"],
+          "alias": {
+            "aex-ui/src": "aex-ui/lib"
+          }
+        }]
+      ]
+    },
+    "test": {
+      "plugins": ["istanbul"]
+    }
+  }
+}

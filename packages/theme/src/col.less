@@ -1,0 +1,76 @@
+@import 'common/var';
+@import 'common/mixins';
+
+[class*='aex-col-'] {
+    float: left;
+    box-sizing: border-box;
+}
+
+.aex-col-0,
+.aex-col-xs-0,
+.aex-col-sm-0,
+.aex-col-md-0,
+.aex-col-lg-0,
+.aex-col-xl-0 {
+    display: none;
+}
+
+// 生成网格
+.generate-col(@n,@i:1) when (@i =< @n) {
+    .aex-col-@{i} {
+        width: (1 / @n * @i * 100) * 1%;
+    }
+    .aex-col-offset-@{i} {
+        margin-left: (1 / @n * @i * 100) * 1%;
+    }
+
+    .aex-col-pull-@{i} {
+        position: relative;
+        right: (1 / @n * @i * 100) * 1%;
+    }
+
+    .aex-col-push-@{i} {
+        position: relative;
+        left: (1 / @n * @i * 100) * 1%;
+    }
+    .generate-col(@n, (@i + 1));
+}
+
+.generate-col(24);
+
+// 生成网格
+.generate-col-size(@size,@n,@i:1) when (@i =< @n) {
+    .aex-col-@{size}-@{i} {
+        width: (1 / @n * @i * 100) * 1%;
+    }
+    .aex-col-@{size}-offset-@{i} {
+        margin-left: (1 / @n * @i * 100) * 1%;
+    }
+
+    .aex-col-@{size}-pull-@{i} {
+        position: relative;
+        right: (1 / @n * @i * 100) * 1%;
+    }
+
+    .aex-col-@{size}-push-@{i} {
+        position: relative;
+        left: (1 / @n * @i * 100) * 1%;
+    }
+    .generate-col-size(@size, @n, (@i + 1));
+}
+
+@media only screen and (max-width: @--sm - 1) {
+    .generate-col-size(xs, 24);
+}
+@media only screen and (min-width: @--sm) {
+    .generate-col-size(sm, 24);
+}
+@media only screen and (min-width: @--md) {
+    .generate-col-size(md, 24);
+}
+@media only screen and (min-width: @--lg) {
+    .generate-col-size(lg, 24);
+}
+@media only screen and (min-width: @--xl) {
+    .generate-col-size(xl, 24);
+}

@@ -1,0 +1,26 @@
+@import 'common/var';
+@import 'common/mixins';
+
+.aex-empty {
+	text-align: center;
+	overflow: hidden;
+	box-sizing: border-box;
+	padding: 14px;
+	width: 120px;
+
+	&__image {
+		margin-bottom: 16px;
+	}
+	&__text {
+		.mixins-user-select();
+		color: @--empty-color;
+		font-size: @--font-size-small;
+	}
+	&__button {
+		cursor: pointer;
+		color: @--color-primary;
+		&:hover {
+			color: lighten(@--color-primary, 10%);
+		}
+	}
+}

@@ -1,0 +1,155 @@
+@import 'common/var';
+@import 'common/popup';
+
+.aex-message-box__wrapper {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+
+	&::after {
+		content: '';
+		display: inline-block;
+		height: 100%;
+		width: 0;
+		vertical-align: middle;
+	}
+}
+
+.aex-message-box {
+	box-sizing: border-box;
+	display: inline-block;
+	width: @--messagebox-width;
+	padding: @--messagebox-padding;
+	padding-bottom: calc(@--messagebox-padding - 8px);
+	vertical-align: middle;
+	background-color: @--color-white;
+	border-radius: @--messagebox-border-radius;
+	border: 1px solid @--border-color-base;
+	font-size: @--messagebox-font-size;
+	box-shadow: @--messagebox-box-shadow;
+	text-align: left;
+	overflow: hidden;
+	backface-visibility: hidden;
+	// 头部
+	&__header {
+		position: relative;
+		padding-bottom: 16px;
+	}
+	&__title {
+		padding-left: 0;
+		margin-bottom: 0;
+		font-size: @--messagebox-title-font-size;
+		line-height: 1;
+		color: @--messagebox-title-color;
+		font-weight: @--font-weight-primary;
+	}
+
+	&__headerbtn {
+		position: absolute;
+		top: -10px;
+		right: 0;
+		padding: 0;
+		border: none;
+		outline: none;
+		background: transparent;
+		font-size: @--message-close-size;
+		cursor: pointer;
+
+		.aex-message-box__close {
+			color: @--messagebox-close-icon-color;
+		}
+
+		&:focus,
+		&:hover {
+			.aex-message-box__close {
+				color: @--messagebox-close-hover-color;
+			}
+		}
+	}
+
+	// 内容区
+	&__content {
+		color: @--messagebox-content-color;
+	}
+	&__container {
+		position: relative;
+	}
+
+	&__message {
+		margin: 0;
+
+		& p {
+			margin: 0;
+			line-height: 22px;
+		}
+	}
+	// 底部按钮组
+	&__btns {
+		padding-top: 14px;
+		text-align: right;
+		display: flex;
+		justify-content: flex-end;
+
+		& .aex-button:nth-child(2) {
+			margin-left: 10px;
+		}
+		& .is-block {
+			flex-grow: 1;
+			width: auto;
+		}
+	}
+	// .aex-message-box__btns-reverse {
+	//     flex-direction: row-reverse;
+	// }
+
+	// 剧中布局
+	&--center {
+		.aex-message-box__header {
+		}
+		.aex-message-box__title {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.aex-message-box__message {
+			margin-left: 0;
+		}
+		.aex-message-box__btns,
+		.aex-message-box__content {
+			text-align: center;
+		}
+	}
+}
+
+.msgbox-fade-enter-active {
+	animation: msgbox-fade-in 0.3s;
+}
+.msgbox-fade-leave-active {
+	animation: msgbox-fade-out 0.3s;
+}
+
+@keyframes msgbox-fade-in {
+	0% {
+		transform: translate3d(0, -20px, 0);
+		opacity: 0;
+	}
+	100% {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+}
+
+@keyframes msgbox-fade-out {
+	0% {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+	100% {
+		transform: translate3d(0, -20px, 0);
+		opacity: 0;
+	}
+}

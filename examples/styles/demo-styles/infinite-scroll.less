@@ -1,0 +1,38 @@
+@import 'aex-ui/packages/theme/src/common/var.less';
+.infinite-list {
+	height: 300px;
+
+	.infinite-list-item {
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		background: @--color-primary-light-2;
+		color: @--color-primary-dark-1;
+		& + .infinite-list-item {
+			margin-top: 10px;
+		}
+	}
+}
+
+.infinite-list-wrapper {
+	height: 300px;
+	text-align: center;
+
+	.list {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+
+	.list-item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 50px;
+		background: @--color-gray-light-6;
+		color: @--color-gray-light-1;
+		& + .list-item {
+			margin-top: 10px;
+		}
+	}
+}

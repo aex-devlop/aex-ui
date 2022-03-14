@@ -1,0 +1,613 @@
+@--sm: 768px;
+@--md: 992px;
+@--lg: 1200px;
+@--xl: 1920px;
+
+/* Transition ------------------------------------------------------------ */
+@--all-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+@--fade-transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1);
+@--fade-linear-transition: opacity 200ms linear;
+@--md-fade-transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1),
+	opacity 300ms cubic-bezier(0.23, 1, 0.32, 1);
+@--border-transition-base: border-color 0.2s
+	cubic-bezier(0.645, 0.045, 0.355, 1);
+@--color-transition-base: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+/* 主色调/品牌色 ------------------------------------------------------------ */
+@--color-primary: #3378ff;
+@--color-primary-light-4: #fafbfd;
+@--color-primary-light-3: #f3f7ff;
+@--color-primary-light-2: #eaf1ff;
+@--color-primary-light-1: #99bbff;
+@--color-primary-dark-1: #306fe9;
+@--color-primary-dark-2: #2a62ce;
+
+/* 灰色系 ------------------------------------------------------------ */
+@--color-gray-dark-2: #0c1627;
+@--color-gray-dark-1: #111d30;
+@--color-gray: #3e495c;
+@--color-gray-light-1: #697384;
+@--color-gray-light-2: #99a1b1;
+@--color-gray-light-3: #c7cbd5;
+@--color-gray-light-4: #dbdee6;
+@--color-gray-light-5: #ecedf0;
+@--color-gray-light-6: #f6f7f9;
+@--color-white: #ffffff;
+
+/* 功能色 ------------------------------------------------------------ */
+// success
+@--color-success: #3ab293;
+@--color-success-light-1: #b2e8dd;
+@--color-success-light-2: #ebf7f4;
+
+// info
+@--color-info: #3378ff;
+@--color-info-light-1: #c1d6ff;
+@--color-info-light-2: #eaf1ff;
+
+// warning
+@--color-warning: #fd8900;
+@--color-warning-light-1: #fedbb2;
+@--color-warning-light-2: #fef3e5;
+
+// danger
+@--color-danger: #e5575a;
+@--color-danger-light-1: #f7cccd;
+@--color-danger-light-2: #fceeee;
+
+/* 阴影 Box-shadow ------------------------------------------------------------ */
+@--box-shadow-1: 0 1px 6px rgba(@--color-gray-dark-1, 10%);
+@--box-shadow-2: 0 4px 12px rgba(@--color-gray-dark-1, 10%);
+@--box-shadow-3: 0 6px 18px rgba(@--color-gray-dark-1, 12%);
+@--box-shadow-4: 0 10px 32px rgba(@--color-gray-dark-1, 12%);
+
+/* Background Color ------------------------------------------------------------ */
+@--background-color-base: @--color-gray-light-6;
+
+// 圆角 border radius
+@--border-radius-base: 4px;
+@--border-radius-circle: 100%;
+
+/* 文字 ------------------------------------------------------------ */
+@--font-size-huge: 26px;
+@--font-size-bigger: 20px;
+@--font-size-large: 18px;
+@--font-size-medium: 16px;
+@--font-size-base: 14px;
+@--font-size-small: 13px;
+@--font-size-mini: 12px;
+
+// 文字 weight
+@--font-weight-primary: 500;
+@--font-weight-secondary: 100;
+
+// 文字颜色
+@--font-color-dark: @--color-gray-dark-1;
+@--font-color-base: @--color-gray;
+@--font-color-secondary: @--color-gray-light-1;
+@--font-color-tertiary: @--color-gray-light-2;
+@--font-color-disable: @--color-gray-light-3;
+
+/* placeholder ------------------------------------------------------------ */
+@--placeholder-color: @--color-gray-light-3;
+
+/* border ------------------------------------------------------------ */
+@--border-width-base: 1px;
+@--border-style-base: solid;
+@--border-color-base: @--color-gray-light-5;
+@--border-color-hover: @--color-gray-light-3;
+@--border-base: @--border-width-base @--border-style-base @--border-color-base;
+// @--border-radius-base: 4px;
+
+/* z-index ------------------------------------------------------------ */
+@--index-normal: 1;
+@--index-top: 1000;
+@--index-popper: 2000;
+
+/* Disable base
+-------------------------- */
+@--disabled-fill-base: @--color-gray-light-6;
+@--disabled-color-base: @--color-gray-light-3;
+@--disabled-border-base: @--color-gray-light-5;
+
+/* Scrollbar ------------------------------------------------------------ */
+@--scrollbar-background-color: rgba(@--color-gray-light-1, 0.3);
+@--scrollbar-hover-background-color: rgba(@--color-gray-light-1, 0.5);
+
+/* Form ------------------------------------------------------------ */
+@--form-label-font-size: @--font-size-base;
+@--form-label-font-color: @--color-gray-light-1;
+
+/* Button ------------------------------------------------------------ */
+@--button-font-weight: @--font-weight-primary;
+
+// Button 尺寸分类
+@--button-large-width: 370px;
+@--button-large-height: 48px;
+@--button-large-font-size: @--font-size-medium;
+@--button-large-border-radius: 6px;
+
+@--button-base-width: 120px;
+@--button-base-height: 40px;
+@--button-base-font-size: @--font-size-base;
+@--button-base-border-radius: 4px;
+
+@--button-medium-width: 80px;
+@--button-medium-height: 36px;
+@--button-medium-font-size: @--font-size-base;
+@--button-medium-border-radius: 4px;
+
+@--button-small-width: 80px;
+@--button-small-height: 32px;
+@--button-small-font-size: @--font-size-base;
+@--button-small-border-radius: 4px;
+
+@--button-mini-width: 54px;
+@--button-mini-height: 28px;
+@--button-mini-font-size: @--font-size-base;
+@--button-mini-border-radius: 4px;
+
+// Button 颜色分类
+@--button-primary-font-color: @--color-white;
+@--button-primary-background-color: @--color-primary;
+@--button-primary-border-color: @--color-primary;
+
+@--button-outline-font-color: @--color-primary;
+@--button-outline-background-color: @--color-white;
+@--button-outline-border-color: @--color-primary;
+
+@--button-secondary-font-color: @--color-gray-dark-1;
+@--button-secondary-background-color: @--color-white;
+@--button-secondary-border-color: @--color-primary;
+
+@--button-tertiary-font-color: @--color-gray-light-1;
+@--button-tertiary-background-color: @--color-white;
+@--button-tertiary-border-color: @--color-gray-light-3;
+
+@--button-success-font-color: @--color-white;
+@--button-success-background-color: @--color-success;
+@--button-success-border-color: @--color-success;
+
+@--button-warning-font-color: @--color-white;
+@--button-warning-background-color: @--color-warning;
+@--button-warning-border-color: @--color-warning;
+
+@--button-danger-font-color: @--color-white;
+@--button-danger-background-color: @--color-danger;
+@--button-danger-border-color: @--color-danger;
+
+@--button-text-font-color: @--color-primary-dark-1;
+@--button-text-background-color: transparent;
+@--button-text-border-color: transparent;
+
+@--button-text-secondary-font-color: @--color-gray-light-1;
+@--button-text-secondary-background-color: @--color-white;
+@--button-text-secondary-border-color: transparent;
+
+/* Popup ------------------------------------------------------------ */
+@--popup-modal-background-color: #000;
+/// opacity||Other|1
+@--popup-modal-opacity: 0.5;
+
+/* Loading ------------------------------------------------------------ */
+@--loading-spinner-size: 42px;
+@--loading-fullscreen-spinner-size: 50px;
+
+/* Tooltip ------------------------------------------------------------ */
+@--tooltip-background-color: @--color-gray-dark-2;
+@--tooltip-font-color: @--color-white;
+@--tooltip-font-size: @--font-size-mini;
+@--tooltip-arrow-size: 6px;
+@--tooltip-padding: 10px;
+@--tooltip-border-color: @--color-gray-dark-2;
+@--tooltip-border-color-light: @--color-gray-light-5;
+@--tooltip-shadow: @--box-shadow-3;
+
+/* Popover ------------------------------------------------------------ */
+@--popover-background-color: @--color-white;
+@--popover-font-size: @--font-size-base;
+@--popover-border-color: @--border-color-base;
+@--popover-arrow-size: 6px;
+@--popover-padding: 16px;
+@--popover-title-font-size: @--font-size-base;
+@--popover-title-font-color: @--font-color-dark;
+@--popover-shadow: @--box-shadow-2;
+
+/* Message ------------------------------------------------------------ */
+@--message-shadow: @--box-shadow-1;
+@--message-min-width: 380px;
+@--message-color-default: @--color-info-light-2;
+@--message-padding: 15px 15px 15px 20px;
+@--message-close-size: 16px;
+@--message-close-icon-color: @--color-info-light-1;
+@--message-close-hover-color: @--color-info-light-1;
+
+/* MessageBox ------------------------------------------------------------ */
+@--messagebox-width: 432px;
+@--messagebox-padding: 24px;
+@--messagebox-border-radius: 4px;
+@--messagebox-font-size: @--font-size-base;
+@--messagebox-box-shadow: @--box-shadow-4;
+// title
+@--messagebox-title-color: @--color-gray-dark-1;
+@--messagebox-title-font-size: @--font-size-medium;
+// close icon
+@--messagebox-close-icon-color: @--color-gray-light-2;
+@--messagebox-close-hover-color: @--color-gray-light-3;
+// content
+@--messagebox-content-color: @--color-gray;
+
+/* Dialog ------------------------------------------------------------ */
+@--dialog-width: 432px;
+@--dialog-maxHeight: 600px;
+@--dialog-padding: 24px;
+@--dialog-border-radius: 4px;
+@--dialog-background-color: @--color-white;
+@--dialog-box-shadow: @--box-shadow-4;
+// title
+@--dialog-title-color: @--color-gray-dark-1;
+@--dialog-title-font-size: @--font-size-medium;
+// content
+@--dialog-content-color: @--color-gray-light-1;
+@--dialog-content-font-size: @--font-size-base;
+
+/* backtop ------------------------------------------------------------ */
+@--backtop-background-color: @--color-gray-light-4;
+@--backtop-font-color: @--color-white;
+@--backtop-box-shadow: @--box-shadow-1;
+@--backtop-hover-background-color: lighten(@--color-gray-light-4, 2%);
+@--backtop-hover-box-shadow: @--box-shadow-2;
+
+/* Avatar ------------------------------------------------------------ */
+@--avatar-font-color: @--color-white;
+@--avatar-background-color: @--color-gray-light-4;
+@--avatar-text-font-size: @--font-size-base;
+@--avatar-icon-font-size: @--font-size-large;
+@--avatar-border-radius: 4px;
+@--avatar-size-base: 40px;
+
+/* Carousel ------------------------------------------------------------ */
+@--carousel-arrow-font-size: 12px;
+@--carousel-arrow-size: 36px;
+@--carousel-arrow-background: rgba(31, 45, 61, 0.11);
+@--carousel-arrow-hover-background: rgba(31, 45, 61, 0.23);
+
+@--carousel-indicator-width: 30px;
+@--carousel-indicator-height: 2px;
+@--carousel-indicator-padding-horizontal: 4px;
+@--carousel-indicator-padding-vertical: 12px;
+@--carousel-indicator-out-color: @--border-color-hover;
+
+/* dropdown ------------------------------------------------------------ */
+@--dropdown-menu-box-shadow: @--box-shadow-2;
+@--dropdown-menuItem-hover-fill: @--color-primary-light-3;
+@--dropdown-menuItem-hover-color: @--color-primary-dark-1;
+
+/* tabs ------------------------------------------------------------ */
+@--tabs-font-size: @--font-size-medium;
+@--tabs-font-color: @--color-gray-light-1;
+@--tabs-font-weight: @--font-weight-primary;
+@--tabs-active-font-color: @--color-gray-dark-1;
+
+/* Menu ------------------------------------------------------------ */
+@--menu-background-color: @--color-white;
+@--menu-item-font-size: @--font-size-base;
+@--menu-item-font-color: @--font-color-base;
+@--menu-item-font-color-secondary: @--font-color-secondary;
+@--menu-item-active-font-color: @--color-primary;
+@--menu-item-hover-color: @--color-primary-light-3;
+
+/* Input ------------------------------------------------------------ */
+@--input-font-size: @--font-size-base;
+@--input-font-color: @--font-color-base;
+@--input-height: 40px;
+@--input-border: 1px solid @--color-gray-light-4;
+@--input-border-radius: 4px;
+@--input-background-color: @--color-white;
+
+@--input-icon-color: @--placeholder-color;
+@--input-placeholder-color: @--placeholder-color;
+
+@--input-hover-border: @--color-gray-light-3;
+@--input-clear-hover-color: lighten(@--input-icon-color, 5%);
+
+@--input-focus-border: @--color-primary;
+@--input-focus-fill: @--color-white;
+
+@--input-disabled-fill: @--disabled-fill-base;
+@--input-disabled-border: @--disabled-border-base;
+@--input-disabled-color: @--disabled-color-base;
+@--input-disabled-placeholder-color: @--disabled-color-base;
+
+@--input-medium-font-size: 14px;
+@--input-medium-height: 36px;
+
+@--input-small-font-size: 13px;
+@--input-small-height: 32px;
+
+@--input-mini-font-size: 12px;
+@--input-mini-height: 28px;
+
+/* Tag ------------------------------------------------------------ */
+@--tag-font-size: @--font-size-base;
+@--tag-border-radius: 4px;
+@--tag-padding: 0 10px;
+
+/* Radio ------------------------------------------------------------ */
+@--radio-font-size: @--font-size-base;
+@--radio-font-weight: @--font-weight-primary;
+@--radio-font-color: @--font-color-base;
+@--radio-input-border-radius: 100%;
+
+@--radio-input-background-color: @--color-white;
+@--radio-input-border: 1px solid @--color-gray-light-4;
+@--radio-input-border-color: @--color-gray-light-4;
+@--radio-icon-color: @--color-white;
+
+@--radio-disabled-input-border-color: @--color-gray-light-4;
+@--radio-disabled-input-fill: @--disabled-fill-base;
+@--radio-disabled-icon-color: @--disabled-fill-base;
+
+@--radio-disabled-checked-input-border-color: @--disabled-border-base;
+@--radio-disabled-checked-input-fill: @--disabled-fill-base;
+@--radio-disabled-checked-icon-color: @--disabled-color-base;
+
+@--radio-checked-font-color: @--color-primary;
+@--radio-checked-input-border-color: @--color-primary;
+@--radio-checked-input-background-color: @--color-primary;
+@--radio-checked-icon-color: @--color-primary;
+@--radio-input-border-color-hover: @--color-primary;
+
+@--radio-bordered-width: 120px;
+@--radio-bordered-height: 40px;
+@--radio-input-height: 14px;
+@--radio-input-width: 14px;
+
+@--radio-bordered-medium-input-height: 14px;
+@--radio-bordered-medium-input-width: 14px;
+@--radio-bordered-medium-height: 36px;
+
+@--radio-bordered-small-input-height: 12px;
+@--radio-bordered-small-input-width: 12px;
+@--radio-bordered-small-height: 32px;
+
+@--radio-bordered-mini-input-height: 12px;
+@--radio-bordered-mini-input-width: 12px;
+@--radio-bordered-mini-height: 28px;
+
+@--radio-button-font-size: @--font-size-base;
+@--radio-button-checked-background-color: @--color-primary;
+@--radio-button-checked-font-color: @--color-white;
+@--radio-button-checked-border-color: @--color-primary;
+@--radio-button-disabled-checked-fill: @--disabled-color-base;
+
+/* Checkbox ------------------------------------------------------------ */
+@--checkbox-font-size: @--font-size-base;
+@--checkbox-font-weight: @--font-weight-primary;
+@--checkbox-font-color: @--font-color-base;
+@--checkbox-input-height: 16px;
+@--checkbox-input-width: 16px;
+
+@--checkbox-border-radius: 4px;
+
+@--checkbox-background-color: @--color-white;
+@--checkbox-input-border: 1px solid @--color-gray-light-4;
+
+@--checkbox-disabled-border-color: @--color-gray-light-4;
+@--checkbox-disabled-input-fill: @--disabled-fill-base;
+@--checkbox-disabled-icon-color: @--disabled-fill-base;
+
+@--checkbox-disabled-checked-input-fill: @--disabled-fill-base;
+@--checkbox-disabled-checked-input-border-color: @--color-gray-light-4;
+@--checkbox-disabled-checked-icon-color: @--placeholder-color;
+
+@--checkbox-checked-font-color: @--color-primary;
+@--checkbox-checked-input-border-color: @--color-primary;
+
+@--checkbox-checked-background-color: @--color-primary;
+@--checkbox-checked-icon-color: @--color-white;
+
+@--checkbox-input-border-color-hover: @--color-primary;
+
+@--checkbox-bordered-height: 40px;
+@--checkbox-bordered-padding: 9px 20px 9px 10px;
+@--checkbox-bordered-medium-padding: 7px 20px 7px 10px;
+@--checkbox-bordered-small-padding: 5px 15px 5px 10px;
+@--checkbox-bordered-mini-padding: 3px 15px 3px 10px;
+@--checkbox-bordered-medium-input-height: 14px;
+@--checkbox-bordered-medium-input-width: 14px;
+@--checkbox-bordered-medium-height: 36px;
+@--checkbox-bordered-small-input-height: 12px;
+@--checkbox-bordered-small-input-width: 12px;
+@--checkbox-bordered-small-height: 32px;
+@--checkbox-bordered-mini-input-height: 12px;
+@--checkbox-bordered-mini-input-width: 12px;
+@--checkbox-bordered-mini-height: 28px;
+
+@--checkbox-button-checked-background-color: @--color-primary;
+@--checkbox-button-checked-font-color: @--color-white;
+@--checkbox-button-checked-border-color: @--color-primary;
+
+/* Select ------------------------------------------------------------ */
+@--select-border-color-hover: @--border-color-hover;
+@--select-disabled-border: @--disabled-border-base;
+
+@--select-font-size: @--font-size-base;
+@--select-close-hover-color: @--color-gray-light-3;
+
+@--select-input-color: @--color-gray-light-1;
+@--select-multiple-input-color: #666;
+
+@--select-input-focus-border-color: @--color-primary;
+
+@--select-input-font-size: @--font-size-base;
+
+@--select-option-color: @--color-gray-light-1;
+@--select-option-disabled-color: @--placeholder-color;
+@--select-option-disabled-background: @--color-white;
+
+@--select-option-height: 34px;
+@--select-option-hover-background: @--color-primary-light-3;
+
+@--select-option-selected-font-color: @--color-primary;
+@--select-option-selected-hover: @--background-color-base;
+
+@--select-group-color: @--color-gray-light-2;
+@--select-group-height: 30px;
+@--select-group-font-size: 12px;
+
+@--select-dropdown-background: @--color-white;
+@--select-dropdown-shadow: @--box-shadow-2;
+@--select-dropdown-empty-color: @--color-gray-light-3;
+
+@--select-dropdown-max-height: 274px;
+@--select-dropdown-padding: 6px 0;
+@--select-dropdown-empty-padding: 10px 0;
+@--select-dropdown-border: solid 1px @--disabled-border-base;
+
+/* Cascader ------------------------------------------------------------ */
+@--cascader-menu-font-color: @--color-gray-light-1;
+
+@--cascader-menu-selected-font-color: @--color-primary;
+@--cascader-menu-fill: @--color-white;
+@--cascader-menu-font-size: @--font-size-base;
+@--cascader-menu-radius: @--border-radius-base;
+@--cascader-menu-border: solid 1px @--border-color-base;
+@--cascader-menu-shadow: @--box-shadow-2;
+@--cascader-node-background-hover: @--background-color-base;
+@--cascader-node-color-disabled: @--placeholder-color;
+@--cascader-color-empty: @--placeholder-color;
+@--cascader-tag-background: @--color-gray-light-6;
+
+/* Switch ------------------------------------------------------------ */
+
+@--switch-on-color: @--color-primary;
+@--switch-off-color: @--color-gray-light-5;
+@--switch-font-size: @--font-size-base;
+@--switch-core-border-radius: 12px;
+@--switch-width: 44px;
+@--switch-height: 22px;
+@--switch-button-size: 16px;
+
+/* Slider ------------------------------------------------------------ */
+@--slider-main-background-color: @--color-primary;
+
+@--slider-runway-background-color: @--color-gray-light-6;
+@--slider-button-hover-color: lighten(@--color-primary, 5%);
+@--slider-stop-background-color: @--color-gray-light-5;
+@--slider-disable-color: @--placeholder-color;
+@--slider-margin: 16px 0;
+@--slider-border-radius: 3px;
+
+@--slider-height: 6px;
+
+@--slider-button-size: 16px;
+@--slider-button-wrapper-size: 36px;
+@--slider-button-wrapper-offset: -15px;
+
+/* DatePicker ------------------------------------------------------------ */
+@--datepicker-font-color: @--font-color-base;
+
+@--datepicker-off-font-color: @--placeholder-color;
+
+@--datepicker-header-font-color: @--font-color-base;
+@--datepicker-icon-color: @--font-color-base;
+@--datepicker-border-color: @--disabled-border-base;
+@--datepicker-inner-border-color: #e4e4e4;
+
+@--datepicker-inrange-background-color: @--border-color-base;
+@--datepicker-inrange-hover-background-color: @--border-color-base;
+@--datepicker-active-color: @--color-primary;
+@--datepicker-hover-font-color: @--color-primary;
+@--datepicker-cell-hover-color: @--color-white;
+
+/* Pagination ------------------------------------------------------------ */
+@--pagination-font-size: @--font-size-small;
+@--pagination-background-color: @--color-white;
+@--pagination-font-color: @--color-gray-light-1;
+@--pagination-border-radius: 3px;
+@--pagination-button-color: @--color-gray-light-1;
+@--pagination-button-width: 35.5px;
+@--pagination-button-height: 28px;
+@--pagination-button-disabled-color: @--disabled-color-base;
+@--pagination-button-disabled-background-color: @--color-white;
+@--pagination-hover-color: @--color-primary;
+
+/* Table ------------------------------------------------------------ */
+@--table-border-color: @--border-color-base;
+@--table-border: 1px solid @--border-color-base;
+@--table-font-color: @--font-color-base;
+
+@--table-header-font-color: @--font-color-tertiary;
+
+@--table-row-hover-background-color: @--background-color-base;
+@--table-current-row-background-color: @--color-primary-light-3;
+
+@--table-header-background-color: @--color-white;
+@--table-fixed-box-shadow: @--box-shadow-1;
+
+/* Alert ------------------------------------------------------------ */
+@--alert-padding: 8px 16px;
+@--alert-border-radius: @--border-radius-base;
+@--alert-title-font-size: 13px;
+@--alert-description-font-size: 12px;
+@--alert-close-font-size: 12px;
+@--alert-close-customed-font-size: 13px;
+
+@--alert-success-color: @--color-success-light-2;
+@--alert-info-color: @--color-info-light-2;
+@--alert-warning-color: @--color-warning-light-2;
+@--alert-danger-color: @--color-danger-light-2;
+
+@--alert-icon-size: 16px;
+@--alert-icon-large-size: 28px;
+
+/* Empty ------------------------------------------------------------ */
+@--empty-color: @--font-color-tertiary;
+@--empty-btn-color: @--color-primary;
+
+/* Notification ------------------------------------------------------------ */
+@--notification-width: 330px;
+@--notification-padding: 14px 26px 14px 13px;
+@--notification-radius: 8px;
+@--notification-shadow: @--box-shadow-2;
+
+@--notification-border-color: @--border-color-base;
+@--notification-icon-size: 24px;
+@--notification-group-margin-left: 13px;
+@--notification-group-margin-right: 8px;
+
+@--notification-content-font-size: @--font-size-base;
+@--notification-content-color: @--font-color-secondary;
+
+@--notification-title-font-size: @--font-size-medium;
+@--notification-title-color: @--font-color-base;
+
+@--notification-close-font-size: 16px;
+@--notification-close-color: @--font-color-secondary;
+@--notification-close-hover-color: @--font-color-tertiary;
+
+@--notification-success-icon-color: @--color-success;
+@--notification-info-icon-color: @--color-info;
+@--notification-warning-icon-color: @--color-warning;
+@--notification-danger-icon-color: @--color-danger;
+
+/* Skeleton ------------------------------------------------------------ */
+@--skeleton-color: #f2f2f2;
+@--skeleton-to-color: #e6e6e6;
+@--skeleton-circle-large-size: 40px;
+@--skeleton-circle-medium-size: 36px;
+@--skeleton-circle-small-size: 20px;
+
+/* Collapse ------------------------------------------------------------ */
+@--collapse-border-color: @--border-color-base;
+@--collapse-header-height: 48px;
+@--collapse-header-background-color: @--color-white;
+@--collapse-header-font-color: @--font-color-base;
+@--collapse-header-font-size: 13px;
+@--collapse-content-background-color: @--color-white;
+@--collapse-content-font-size: 13px;
+@--collapse-content-font-color: @--font-color-base;
+
+/* Toast ------------------------------------------------------------ */
+// @--Toast

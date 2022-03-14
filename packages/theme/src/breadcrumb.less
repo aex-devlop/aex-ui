@@ -1,0 +1,56 @@
+@import 'common/mixins';
+@import 'common/var';
+
+.aex-breadcrumb {
+	font-size: 14px;
+	line-height: 1;
+	.mixins-clearfix();
+
+	&__separator {
+		margin: 0 9px;
+		font-weight: bold;
+		color: @--placeholder-color;
+
+		&[class*='icon'] {
+			margin: 0 6px;
+			font-weight: normal;
+		}
+	}
+
+	&__item {
+		float: left;
+
+		.aex-breadcrumb__inner {
+			color: @--font-color-secondary;
+
+			&.is-link,
+			& a {
+				font-weight: bold;
+				text-decoration: none;
+				transition: @--color-transition-base;
+				color: @--font-color-base;
+
+				&:hover {
+					color: @--color-primary;
+					cursor: pointer;
+				}
+			}
+		}
+
+		&:last-child {
+			.aex-breadcrumb__inner,
+			.aex-breadcrumb__inner a {
+				&,
+				&:hover {
+					font-weight: normal;
+					color: @--font-color-secondary;
+					cursor: text;
+				}
+			}
+
+			.aex-breadcrumb__separator {
+				display: none;
+			}
+		}
+	}
+}

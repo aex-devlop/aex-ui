@@ -1,0 +1,118 @@
+@import '../common/var';
+
+.aex-picker-panel {
+	color: @--color-gray-light-2;
+	border: 1px solid @--datepicker-border-color;
+	box-shadow: @--box-shadow-2;
+	background: @--color-white;
+	border-radius: @--border-radius-base;
+	line-height: 30px;
+	margin: 5px 0;
+
+	&__body,
+	&__body-wrapper {
+		&::after {
+			content: '';
+			display: table;
+			clear: both;
+		}
+	}
+
+	&__content {
+		position: relative;
+		margin: 15px;
+	}
+
+	&__footer {
+		border-top: 1px solid @--datepicker-inner-border-color;
+		padding: 4px;
+		text-align: right;
+		background-color: @--color-white;
+		position: relative;
+		font-size: 0;
+	}
+
+	&__shortcut {
+		display: block;
+		width: 100%;
+		border: 0;
+		background-color: transparent;
+		line-height: 28px;
+		font-size: 14px;
+		color: @--datepicker-font-color;
+		padding-left: 12px;
+		text-align: left;
+		outline: none;
+		cursor: pointer;
+
+		&:hover {
+			color: @--datepicker-hover-font-color;
+		}
+
+		&.active {
+			background-color: #e6f1fe;
+			color: @--datepicker-active-color;
+		}
+	}
+
+	&__btn {
+		border: 1px solid #dcdcdc;
+		color: #333;
+		line-height: 24px;
+		border-radius: 2px;
+		padding: 0 20px;
+		cursor: pointer;
+		background-color: transparent;
+		outline: none;
+		font-size: 12px;
+
+		&[disabled] {
+			color: #cccccc;
+			cursor: not-allowed;
+		}
+	}
+
+	&__icon-btn {
+		font-size: 12px;
+		color: @--datepicker-icon-color;
+		border: 0;
+		background: transparent;
+		cursor: pointer;
+		outline: none;
+		margin-top: -2px;
+
+		&:hover {
+			color: @--datepicker-hover-font-color;
+		}
+
+		&.is-disabled {
+			color: @--disabled-color-base;
+
+			&:hover {
+				cursor: not-allowed;
+			}
+		}
+	}
+
+	&.is-link-btn {
+		vertical-align: middle;
+	}
+}
+
+.aex-picker-panel *[slot='sidebar'],
+.aex-picker-panel__sidebar {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 110px;
+	border-right: 1px solid @--datepicker-inner-border-color;
+	box-sizing: border-box;
+	padding-top: 6px;
+	background-color: @--color-white;
+	overflow: auto;
+}
+
+.aex-picker-panel *[slot='sidebar'] + .aex-picker-panel__body,
+.aex-picker-panel__sidebar + .aex-picker-panel__body {
+	margin-left: 110px;
+}

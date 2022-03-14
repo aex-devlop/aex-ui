@@ -1,0 +1,127 @@
+@import 'common/var';
+@import 'common/mixins';
+
+.aex-form-item {
+	margin-bottom: 28px;
+	.mixins-clearfix();
+
+	& .aex-form-item {
+		margin-bottom: 0;
+	}
+	& .aex-input__validateIcon {
+		display: none;
+	}
+
+	&--medium {
+		.aex-form-item__content,
+		.aex-form-item__label {
+			line-height: 36px;
+		}
+	}
+	&--small {
+		.aex-form-item__content,
+		.aex-form-item__label {
+			line-height: 32px;
+		}
+		&.aex-form-item {
+			margin-bottom: 20px;
+		}
+		.aex-form-item__error {
+			padding-top: 3px;
+		}
+	}
+	&--mini {
+		.aex-form-item__content,
+		.aex-form-item__label {
+			line-height: 28px;
+		}
+		&.aex-form-item {
+			margin-bottom: 20px;
+		}
+		.aex-form-item__error {
+			padding-top: 2px;
+		}
+	}
+
+	&__label-wrap {
+		float: left;
+		.aex-form-item__label {
+			display: inline-block;
+			float: none;
+		}
+	}
+
+	&__label {
+		text-align: right;
+		vertical-align: middle;
+		float: left;
+		font-size: @--form-label-font-size;
+		color: @--form-label-font-color;
+		padding: 0 12px 0 0;
+		box-sizing: border-box;
+		line-height: 40px;
+	}
+
+	&__content {
+		line-height: 40px;
+		position: relative;
+		font-size: 14px;
+		.mixins-clearfix();
+
+		.aex-input-group {
+			vertical-align: top;
+		}
+	}
+
+	&__error {
+		color: @--color-danger;
+		font-size: 12px;
+		line-height: 1;
+		padding-top: 6px;
+		position: absolute;
+		top: 100%;
+		left: 0;
+
+		&--inline {
+			position: relative;
+			top: auto;
+			left: auto;
+			display: inline-block;
+			margin-left: 10px;
+		}
+	}
+
+	&.is-required:not(.is-no-asterisk) {
+		& > .aex-form-item__label:before,
+		& .aex-form-item__label-wrap > .aex-form-item__label:before {
+			content: '*';
+			color: @--color-danger;
+			margin-right: 4px;
+		}
+	}
+
+	&.is-error {
+		& .aex-input__inner,
+		& .aex-textarea__inner {
+			&,
+			&:focus {
+				border-color: @--color-danger;
+			}
+		}
+		& .aex-input-group__append,
+		& .aex-input-group__prepend {
+			& .aex-input__inner {
+				border-color: transparent;
+			}
+		}
+		.aex-input__validateIcon {
+			color: @--color-danger;
+		}
+	}
+
+	&--feedback {
+		.aex-input__validateIcon {
+			display: inline-block;
+		}
+	}
+}

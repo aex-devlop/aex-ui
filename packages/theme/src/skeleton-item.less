@@ -1,0 +1,82 @@
+@import 'common/var';
+
+.circle-size(@size) {
+	width: @size;
+	height: @size;
+	line-height: @size;
+}
+
+.aex-skeleton {
+	&__item {
+		background: @--skeleton-color;
+		display: inline-block;
+		height: 16px;
+		border-radius: @--border-radius-base;
+		width: 100%;
+	}
+
+	&__circle {
+		border-radius: 50%;
+		.circle-size(@--skeleton-circle-medium-size);
+
+		&--lg {
+			.circle-size(@--skeleton-circle-large-size);
+		}
+
+		&--md {
+			.circle-size(@--skeleton-circle-small-size);
+		}
+	}
+
+	&__button {
+		height: 40px;
+		width: 64px;
+		border-radius: 4px;
+	}
+
+	&__p {
+		width: 100%;
+		&.is-last {
+			width: 61%;
+		}
+
+		&.is-first {
+			width: 33%;
+		}
+	}
+
+	&__text {
+		width: 100%;
+		height: @--font-size-small;
+	}
+
+	&__caption {
+		height: @--font-size-mini;
+	}
+
+	&__h1 {
+		height: @--font-size-bigger;
+	}
+
+	&__h3 {
+		height: @--font-size-large;
+	}
+
+	&__h5 {
+		height: @--font-size-medium;
+	}
+
+	&__image {
+		width: unset;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 0;
+
+		svg {
+			fill: #dcdde0;
+			width: 22%;
+			height: 22%;
+		}
+	}
+}

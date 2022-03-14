@@ -1,0 +1,106 @@
+@import 'common/var';
+
+.aex-dropdown-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: 10px 0;
+    margin: 5px 0;
+    background-color: @--color-white;
+    border: 1px solid @--border-color-base;
+    border-radius: 6px;
+    box-shadow: @--dropdown-menu-box-shadow;
+
+    &__item {
+        list-style: none;
+        line-height: 36px;
+        padding: 0 16px;
+        margin: 0;
+        font-size: @--font-size-base;
+        color: @--color-gray;
+        cursor: pointer;
+        outline: none;
+        &:not(.is-disabled):hover,
+        &:focus {
+            background-color: @--dropdown-menuItem-hover-fill;
+            color: @--dropdown-menuItem-hover-color;
+        }
+
+        i {
+            margin-right: 5px;
+        }
+
+        &--divided {
+            position: relative;
+            margin-top: 6px;
+            border-top: 1px solid @--border-color-base;
+
+            &:before {
+                content: '';
+                height: 6px;
+                display: block;
+                margin: 0 -16px;
+                background-color: @--color-white;
+            }
+        }
+
+        &.is-disabled {
+            cursor: default;
+            color: @--disabled-color-base;
+            pointer-events: none;
+        }
+    }
+
+    &--medium {
+        padding: 6px 0;
+        .aex-dropdown-menu__item {
+            line-height: 30px;
+            padding: 0 17px;
+            font-size: @--font-size-base;
+
+            &.aex-dropdown-menu__item--divided {
+                margin-top: 6px;
+
+                &:before {
+                    height: 6px;
+                    margin: 0 -17px;
+                }
+            }
+        }
+    }
+    &--small {
+        padding: 6px 0;
+        .aex-dropdown-menu__item {
+            line-height: 27px;
+            padding: 0 15px;
+            font-size: @--font-size-small;
+
+            &.aex-dropdown-menu__item--divided {
+                margin-top: 4px;
+
+                &:before {
+                    height: 4px;
+                    margin: 0 -15px;
+                }
+            }
+        }
+    }
+    &--mini {
+        padding: 3px 0;
+        .aex-dropdown-menu__item {
+            line-height: 24px;
+            padding: 0 10px;
+            font-size: @--font-size-mini;
+
+            &.aex-dropdown-menu__item--divided {
+                margin-top: 3px;
+
+                &:before {
+                    height: 3px;
+                    margin: 0 -10px;
+                }
+            }
+        }
+    }
+}

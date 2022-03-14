@@ -1,0 +1,38 @@
+@import 'common/var';
+@import './skeleton-item.less';
+
+.skeleton-color() {
+	background: linear-gradient(
+		90deg,
+		@--skeleton-color 25%,
+		@--skeleton-to-color 37%,
+		@--skeleton-color 63%
+	);
+	background-size: 400% 100%;
+	animation: aex-skeleton-loading 1.4s ease infinite;
+}
+
+@keyframes aex-skeleton-loading {
+	0% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0 50%;
+	}
+}
+
+.aex-skeleton {
+	width: 100%;
+	&__first-line,
+	&__paragraph {
+		height: 16px;
+		margin-top: 16px;
+		background: @--skeleton-color;
+	}
+
+	&.is-animated {
+		.aex-skeleton__item {
+			.skeleton-color();
+		}
+	}
+}

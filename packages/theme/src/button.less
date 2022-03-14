@@ -1,0 +1,359 @@
+@import './common/var';
+@import './common/mixins';
+
+.round(@height) {
+	&.is-round {
+		border-radius: calc(@height / 2);
+	}
+}
+.circle(@height) {
+	&.is-circle {
+		width: @height;
+		border-radius: 50%;
+	}
+}
+
+.aex-button {
+	display: inline-block;
+	white-space: nowrap;
+	cursor: pointer;
+	-webkit-appearance: none;
+	text-align: center;
+	box-sizing: border-box;
+
+	// Button 尺寸
+	width: @--button-base-width;
+	height: @--button-base-height;
+	line-height: @--button-base-height;
+	font-size: @--button-base-font-size;
+	border-radius: @--button-base-border-radius;
+
+	transition: all 0.2s;
+
+	.mixins-user-select();
+	& + & {
+		margin-left: 10px;
+	}
+
+	// 去除Firefox的点击虚线
+	&::-moz-focus-inner {
+		border: 0;
+	}
+	// 设置图标按钮与文字之间的间隔
+	& [class*='aex-icon-'] {
+		font-size: 18px;
+		& + span {
+			margin-left: 5px;
+			display: inline-block;
+			transform: translateY(-2px);
+		}
+	}
+	.round(@--button-base-height);
+	.circle(@--button-base-height);
+
+	&.is-block {
+		width: 100% !important;
+	}
+	&.is-loading {
+		cursor: auto;
+		pointer-events: none;
+		opacity: 0.5;
+	}
+
+	// Button 尺寸
+	&.aex-button--large {
+		width: @--button-large-width;
+		height: @--button-large-height;
+		line-height: @--button-large-height;
+		font-size: @--button-large-font-size;
+		border-radius: @--button-large-border-radius;
+		.round(@--button-large-height);
+		.circle(@--button-large-height);
+	}
+	&.aex-button--medium {
+		width: @--button-medium-width;
+		height: @--button-medium-height;
+		line-height: @--button-medium-height;
+		font-size: @--button-medium-font-size;
+		border-radius: @--button-medium-border-radius;
+		.round(@--button-medium-height);
+		.circle(@--button-medium-height);
+	}
+	&.aex-button--small {
+		width: @--button-small-width;
+		height: @--button-small-height;
+		line-height: @--button-small-height;
+		font-size: @--button-small-font-size;
+		border-radius: @--button-small-border-radius;
+		.round(@--button-small-height);
+		.circle(@--button-small-height);
+	}
+	&.aex-button--mini {
+		width: @--button-mini-width;
+		height: @--button-mini-height;
+		line-height: @--button-mini-height;
+		font-size: @--button-mini-font-size;
+		border-radius: @--button-mini-border-radius;
+		.round(@--button-mini-height);
+		.circle(@--button-mini-height);
+	}
+
+	// Button 颜色
+	&.aex-button--primary {
+		color: @--button-primary-font-color;
+		background-color: @--button-primary-background-color;
+		border: 1px solid @--button-primary-border-color;
+		&:hover,
+		&:focus {
+			background-color: lighten(@--button-primary-background-color, 10%);
+			border-color: lighten(@--button-primary-background-color, 10%);
+		}
+		&:active {
+			background-color: darken(@--button-primary-background-color, 8%);
+			border: 1px solid darken(@--button-primary-border-color, 8%);
+		}
+		&.is-disabled {
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
+		// 活动结束状态的按钮
+		&.is-finish {
+			cursor: not-allowed;
+			background-color: @--color-gray-light-3;
+			border: 1px solid @--disabled-border-base;
+		}
+	}
+	// outline
+	&.aex-button--outline {
+		color: @--button-outline-font-color;
+		background-color: @--button-outline-background-color;
+		border: 1px solid @--button-outline-border-color;
+		&:hover,
+		&:focus {
+			color: lighten(@--button-outline-font-color, 10%);
+			border-color: lighten(@--button-primary-background-color, 10%);
+		}
+		&:active {
+			color: darken(@--button-outline-font-color, 10%);
+			border-color: darken(@--button-primary-background-color, 10%);
+		}
+		&.is-disabled,
+		&.is-finish {
+			cursor: not-allowed;
+			color: @--disabled-color-base;
+			border: 1px solid @--disabled-border-base;
+		}
+	}
+	// secondary
+	&.aex-button--secondary {
+		color: @--button-secondary-font-color;
+		background-color: @--button-secondary-background-color;
+		border: 1px solid @--button-secondary-border-color;
+		&:hover,
+		&:focus {
+			color: lighten(@--button-outline-font-color, 10%);
+			border-color: lighten(@--button-primary-background-color, 10%);
+		}
+		&:active {
+			color: darken(@--button-outline-font-color, 10%);
+			border-color: darken(@--button-primary-background-color, 10%);
+		}
+		&.is-disabled,
+		&.is-finish {
+			cursor: not-allowed;
+			color: @--disabled-color-base;
+			border: 1px solid @--disabled-border-base;
+		}
+	}
+	// tertiary
+	&.aex-button--tertiary {
+		color: @--button-tertiary-font-color;
+		background-color: @--button-tertiary-background-color;
+		border: 1px solid @--button-tertiary-border-color;
+		&:hover,
+		&:focus {
+			color: lighten(@--button-outline-font-color, 10%);
+			border-color: lighten(@--button-primary-background-color, 10%);
+		}
+		&:active {
+			color: darken(@--button-outline-font-color, 10%);
+			border-color: darken(@--button-primary-background-color, 10%);
+		}
+		&.is-disabled,
+		&.is-finish {
+			cursor: not-allowed;
+			color: @--disabled-color-base;
+			border: 1px solid @--disabled-border-base;
+		}
+	}
+	// success
+	&.aex-button--success {
+		color: @--button-success-font-color;
+		background-color: @--button-success-background-color;
+		border: 1px solid @--button-success-border-color;
+		&:hover,
+		&:focus {
+			background-color: lighten(@--button-success-background-color, 10%);
+			border-color: transparent;
+		}
+		&:active {
+			background-color: darken(@--button-success-background-color, 5%);
+			border-color: transparent;
+		}
+		&.is-disabled {
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
+		// 活动结束状态的按钮
+		&.is-finish {
+			cursor: not-allowed;
+			background-color: @--color-gray-light-3;
+			border: 1px solid @--disabled-border-base;
+		}
+	}
+	// warning
+	&.aex-button--warning {
+		color: @--button-warning-font-color;
+		background-color: @--button-warning-background-color;
+		border: 1px solid @--button-warning-border-color;
+		&:hover,
+		&:focus {
+			background-color: lighten(@--button-warning-background-color, 10%);
+			border-color: transparent;
+		}
+		&:active {
+			background-color: darken(@--button-warning-background-color, 5%);
+			border-color: transparent;
+		}
+		&.is-disabled {
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
+		// 活动结束状态的按钮
+		&.is-finish {
+			cursor: not-allowed;
+			background-color: @--color-gray-light-3;
+			border: 1px solid @--disabled-border-base;
+		}
+	}
+	// danger
+	&.aex-button--danger {
+		color: @--button-danger-font-color;
+		background-color: @--button-danger-background-color;
+		border: 1px solid @--button-danger-border-color;
+		&:hover,
+		&:focus {
+			background-color: lighten(@--button-danger-background-color, 10%);
+			border-color: transparent;
+		}
+		&:active {
+			background-color: darken(@--button-danger-background-color, 5%);
+			border-color: transparent;
+		}
+		&.is-disabled {
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
+		// 活动结束状态的按钮
+		&.is-finish {
+			cursor: not-allowed;
+			background-color: @--color-gray-light-3;
+			border: 1px solid @--disabled-border-base;
+		}
+	}
+
+	// text
+	&.aex-button--text {
+		color: @--button-text-font-color;
+		background-color: @--button-text-background-color;
+		border: 1px solid @--button-text-border-color;
+		&:hover,
+		&:focus {
+			color: lighten(@--button-text-font-color, 10%);
+		}
+		&:active {
+			color: darken(@--button-text-font-color, 10%);
+		}
+		&.is-disabled,
+		&.is-finish {
+			cursor: not-allowed;
+			color: @--disabled-color-base;
+			background-color: @--button-text-background-color;
+		}
+	}
+
+	// text-secondary
+	&.aex-button--text-secondary {
+		color: @--button-text-secondary-font-color;
+		background-color: @--button-text-secondary-background-color;
+		border: 1px solid @--button-text-secondary-border-color;
+		&:hover,
+		&:focus {
+			color: lighten(@--button-text-font-color, 10%);
+		}
+		&:active {
+			color: darken(@--button-text-font-color, 10%);
+		}
+		&.is-disabled,
+		&.is-finish {
+			cursor: not-allowed;
+			color: @--disabled-color-base;
+			background-color: @--button-text-secondary-background-color;
+		}
+	}
+}
+
+.aex-button-group {
+	.mixins-clearfix();
+	display: inline-block;
+	vertical-align: middle;
+	& > .aex-button {
+		float: left;
+		position: relative;
+		& + .aex-button {
+			margin-left: 0;
+		}
+		&.is-disabled {
+			z-index: 1;
+		}
+		&:first-child {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+		&:last-child {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+		&:not(:first-child):not(:last-child) {
+			border-radius: 0;
+		}
+		&:not(:last-child) {
+			margin-right: -1px;
+		}
+
+		&:hover,
+		&:focus,
+		&:active {
+			z-index: 1;
+		}
+
+		&.is-active {
+			z-index: 1;
+		}
+	}
+	.aex-button--primary,
+	.aex-button--success,
+	.aex-button--warning,
+	.aex-button--danger {
+		&:first-child {
+			border-right-color: rgba(@--color-white, 0.5);
+		}
+		&:last-child {
+			border-left-color: rgba(@--color-white, 0.5);
+		}
+		&:not(:first-child):not(:last-child) {
+			border-left-color: rgba(@--color-white, 0.5);
+			border-right-color: rgba(@--color-white, 0.5);
+		}
+	}
+}

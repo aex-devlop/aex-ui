@@ -1,0 +1,138 @@
+@import 'common/var';
+
+.aex-switch {
+	display: inline-flex;
+	align-items: center;
+	position: relative;
+	font-size: @--switch-font-size;
+	line-height: @--switch-height;
+	height: @--switch-height;
+	vertical-align: middle;
+	&.is-disabled {
+		& .aex-switch__core,
+		& .aex-switch__label {
+			cursor: not-allowed;
+		}
+	}
+
+	&__label {
+		transition: 0.2s;
+		height: @--switch-height;
+		display: inline-block;
+		font-size: @--switch-font-size;
+		font-weight: 500;
+		cursor: pointer;
+		vertical-align: middle;
+		color: @--font-color-base;
+
+		&.is-active {
+			color: @--color-primary;
+		}
+
+		&--left {
+			margin-right: 10px;
+		}
+		&--right {
+			margin-left: 10px;
+		}
+		& * {
+			line-height: 1;
+			font-size: @--switch-font-size;
+			display: inline-block;
+		}
+	}
+
+	&__input {
+		position: absolute;
+		width: 0;
+		height: 0;
+		opacity: 0;
+		margin: 0;
+	}
+
+	&__core {
+		margin: 0;
+		display: inline-block;
+		position: relative;
+		width: @--switch-width;
+		height: @--switch-height;
+		border: 1px solid @--switch-off-color;
+		outline: none;
+		border-radius: @--switch-core-border-radius;
+		box-sizing: border-box;
+		background: @--switch-off-color;
+		cursor: pointer;
+		transition: border-color 0.3s, background-color 0.3s;
+		vertical-align: middle;
+		color: @--color-white;
+		font-size: @--font-size-mini;
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 2px;
+			left: 1px;
+			border-radius: @--border-radius-circle;
+			transition: all 0.3s;
+			width: @--switch-button-size;
+			height: @--switch-button-size;
+			background-color: @--color-white;
+		}
+		& > span:first-child {
+			position: absolute;
+			left: 4px;
+		}
+		& > span:last-child {
+			position: absolute;
+			right: 4px;
+		}
+
+		& > i:first-child {
+			position: absolute;
+			font-size: 14px;
+			top: 3px;
+			left: 4px;
+		}
+		& > i:last-child {
+			position: absolute;
+			font-size: 14px;
+			top: 3px;
+			right: 4px;
+		}
+	}
+
+	&.is-checked {
+		.aex-switch__core {
+			border-color: @--switch-on-color;
+			background-color: @--switch-on-color;
+			&::after {
+				left: 100%;
+				margin-left: -@--switch-button-size - 1px;
+			}
+		}
+	}
+
+	&.is-disabled {
+		opacity: 0.6;
+	}
+
+	&--wide {
+		.aex-switch__label {
+			&.aex-switch__label--left {
+				span {
+					left: 10px;
+				}
+			}
+			&.aex-switch__label--right {
+				span {
+					right: 10px;
+				}
+			}
+		}
+	}
+
+	& .label-fade-enter,
+	& .label-fade-leave-active {
+		opacity: 0;
+	}
+}

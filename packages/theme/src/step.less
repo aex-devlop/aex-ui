@@ -1,0 +1,361 @@
+@import 'common/var';
+
+.aex-step {
+	position: relative;
+	flex-shrink: 1;
+
+	&:last-of-type {
+		.aex-step__line {
+			display: none;
+		}
+		&.is-flex {
+			flex-basis: auto !important;
+			flex-shrink: 0;
+			flex-grow: 0;
+		}
+		.aex-step__main,
+		.aex-step__description {
+			padding-right: 0;
+		}
+	}
+
+	&__head {
+		position: relative;
+		width: 100%;
+		color: @--color-gray-light-3;
+		border-color: @--color-gray-light-3;
+
+		&.is-process {
+			color: @--font-color-base;
+			border-color: @--font-color-base;
+
+			& + .aex-step__main {
+				.aex-step__title {
+					color: @--font-color-base;
+				}
+				.aex-step__description {
+					color: @--font-color-secondary;
+				}
+			}
+		}
+	}
+
+	&__icon {
+		position: relative;
+		z-index: 1;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		width: 24px;
+		height: 24px;
+		box-sizing: border-box;
+		background: @--color-white;
+		transition: 0.15s ease-out;
+
+		&.is-text {
+			font-size: 12px;
+			border-radius: 50%;
+			border: 1px solid;
+			border-color: inherit;
+		}
+		&.is-icon {
+			width: 40px;
+			font-size: 22px;
+		}
+	}
+
+	&__icon-inner {
+		display: inline-block;
+		user-select: none;
+		text-align: center;
+		line-height: 1;
+		color: inherit;
+
+		&[class*='el-icon']:not(.is-status) {
+			font-size: 25px;
+		}
+
+		// 组件自身表示状态的图标
+		&.is-status {
+			transform: translateY(1px);
+		}
+	}
+
+	&__line {
+		position: absolute;
+		border-color: inherit;
+		background-color: @--color-gray-light-3;
+	}
+
+	&__line-inner {
+		display: block;
+		border-width: 1px;
+		border-style: solid;
+		border-color: inherit;
+		transition: 0.15s ease-out;
+		box-sizing: border-box;
+		width: 0;
+		height: 0;
+	}
+
+	&__main {
+		white-space: normal;
+		text-align: left;
+	}
+
+	&__title {
+		font-size: 16px;
+		line-height: 38px;
+		color: @--color-gray-light-3;
+
+		&--horizontal {
+			position: absolute;
+			left: 30px;
+			top: 0px;
+		}
+	}
+
+	&__description {
+		padding-right: 10%;
+		margin-top: -5px;
+		font-size: 12px;
+		line-height: 20px;
+		font-weight: normal;
+		color: @--color-gray-light-3;
+	}
+
+	&.is-horizontal {
+		.aex-step__line {
+			height: 1px;
+			top: 11px;
+			left: 30px;
+			right: 10px;
+		}
+	}
+
+	&.is-vertical {
+		display: flex;
+
+		.aex-step__head {
+			flex-grow: 0;
+			width: 24px;
+		}
+
+		.aex-step__main {
+			padding-left: 10px;
+			flex-grow: 1;
+		}
+
+		.aex-step__title {
+			line-height: 24px;
+			padding-bottom: 8px;
+		}
+
+		.aex-step__line {
+			width: 1px;
+			top: 30px;
+			bottom: 10px;
+			left: 11px;
+		}
+
+		.aex-step__icon {
+			&.is-icon {
+				width: 24px;
+			}
+		}
+	}
+
+	&.is-center {
+		.aex-step__head {
+			text-align: center;
+		}
+
+		.aex-step__main {
+			text-align: center;
+		}
+
+		.aex-step__description {
+			padding-left: 20%;
+			padding-right: 20%;
+		}
+
+		.aex-step__line {
+			left: calc(50% + 20px);
+			right: calc(-50% + 20px);
+		}
+		.aex-step__title--horizontal {
+			position: absolute;
+			left: calc(50% + 20px);
+			top: 0px;
+		}
+	}
+
+	&.is-simple {
+		display: flex;
+		align-items: center;
+
+		.aex-step__head {
+			width: auto;
+			font-size: 0;
+			padding-right: 10px;
+		}
+		.aex-step__icon {
+			background: transparent;
+			width: 16px;
+			height: 16px;
+			font-size: 20px;
+		}
+		.aex-step__icon-inner {
+			&[class*='el-icon']:not(.is-status) {
+				font-size: 18px;
+			}
+
+			&.is-status {
+				transform: scale(0.8) translateY(1px);
+			}
+		}
+		.aex-step__main {
+			position: relative;
+			display: flex;
+			align-items: stretch;
+			flex-grow: 1;
+		}
+		.aex-step__title {
+			font-size: 16px;
+			line-height: 20px;
+		}
+		&:not(:last-of-type) {
+			.aex-step__title {
+				max-width: 50%;
+				word-break: break-all;
+			}
+		}
+		.aex-step__arrow {
+			flex-grow: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			&::before,
+			&::after {
+				content: '';
+				display: inline-block;
+				position: absolute;
+				height: 15px;
+				width: 1px;
+				background: @--color-gray-light-3;
+			}
+
+			&::before {
+				transform: rotate(-45deg) translateY(-4px);
+				transform-origin: 0 0;
+			}
+
+			&::after {
+				transform: rotate(45deg) translateY(4px);
+				transform-origin: 100% 100%;
+			}
+		}
+		&:last-of-type {
+			.aex-step__arrow {
+				display: none;
+			}
+		}
+	}
+
+	&.is-dot {
+		.aex-step__icon {
+			width: 10px !important;
+			height: 10px !important;
+			border-radius: 50%;
+		}
+		.aex-step__line {
+			top: 9px;
+			left: 15px;
+			right: 5px;
+		}
+
+		&.is-vertical {
+			.aex-step__icon {
+				width: 10px !important;
+				height: 10px !important;
+				border-radius: 50%;
+			}
+			.aex-step__line {
+				top: 19px;
+				left: 4px;
+			}
+		}
+
+		.aex-step__title--horizontal {
+			position: absolute;
+			left: 16px;
+			top: 0px;
+		}
+	}
+
+	&.is-strip {
+		.aex-step__strip__line {
+			width: calc(100% - 18px);
+			position: relative;
+			border-color: inherit;
+			background-color: transparent;
+			height: 38px;
+		}
+		.aex-step__strip__arrow {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 19px 0 19px 19px;
+			border-color: transparent;
+		}
+
+		.aex-step__strip__title {
+			color: @--color-gray-light-3;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		// 	.aex-step__line-inner {
+		// 		display: block;
+		// 		border-width: 1px;
+		// 		border-style: solid;
+		// 		border-color: inherit;
+		// 		transition: 0.15s ease-out;
+		// 		box-sizing: border-box;
+		// 		width: 0;
+		// 		height: 100%;
+		// 	}
+		// }
+		// &.is-horizontal.is-strip {
+		// 	height: 38px;
+		// 	.aex-step__line {
+		// 		height: 100%;
+		// 		top: 0;
+		// 		left: 0;
+		// 		// right: 10px;
+		// 	}
+		// 	.aex-step__line-inner {
+		// 		width: 100%;
+		// 		height: 100%;
+		// 		overflow: hidden;
+		// 		background-color: @--color-primary;
+		// 		&:before {
+		// 			content: '';
+		// 			position: absolute;
+		// 			right: 0;
+		// 			width: 0;
+		// 			height: 0;
+		// 			border-style: solid;
+		// 			border-width: 18px 0 18px 18px;
+		// 			border-color: transparent transparent transparent
+		// 				@--color-primary;
+		// 		}
+		// 	}
+	}
+}

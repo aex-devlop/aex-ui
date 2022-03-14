@@ -1,0 +1,39 @@
+@import 'common/var';
+
+.aex-select-group {
+    margin: 0;
+    padding: 0;
+
+    &__wrap {
+        position: relative;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        &:not(:last-of-type) {
+            padding-bottom: 24px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                display: block;
+                left: 20px;
+                right: 20px;
+                bottom: 12px;
+                height: 1px;
+                background: @--border-color-base;
+            }
+        }
+    }
+
+    &__title {
+        padding-left: 20px;
+        font-size: @--select-group-font-size;
+        color: @--select-group-color;
+        line-height: @--select-group-height;
+    }
+
+    & .aex-select-dropdown__item {
+        padding-left: 20px;
+    }
+}

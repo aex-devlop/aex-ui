@@ -1,0 +1,133 @@
+@import 'common/var';
+@import 'common/mixins';
+@import 'font.less';
+
+.renderColor(@color) {
+	color: @color;
+	.aex-text-link {
+		color: @color;
+		&:hover {
+			color: rgba(@color, 70%);
+		}
+		&.is-underline {
+			&:hover:after {
+				border-bottom: 1px solid rgba(@color, 70%);
+			}
+		}
+	}
+}
+
+.aex-text {
+	width: 100%;
+	padding: 0;
+	color: @--font-color-base;
+	font-size: @--font-size-base;
+	line-height: 22px;
+
+	.aex-text-link {
+		display: inline-block;
+		position: relative;
+		text-decoration: none;
+		outline: none;
+		cursor: pointer;
+		color: @--font-color-base;
+		&:hover {
+			color: @--color-primary-dark-1;
+		}
+		&.is-underline {
+			&:hover:after {
+				content: '';
+				position: absolute;
+				left: 0;
+				right: 0;
+				height: 0;
+				bottom: 0;
+				border-bottom: 1px solid @--color-primary-dark-1;
+			}
+		}
+	}
+
+	// 颜色
+
+	&.aex-text--dark {
+		.renderColor(@--font-color-dark);
+	}
+	&.aex-text--secondary {
+		.renderColor(@--font-color-secondary);
+	}
+	&.aex-text--tertiary {
+		.renderColor(@--font-color-tertiary);
+	}
+	&.aex-text--success {
+		.renderColor(@--color-success);
+	}
+	&.aex-text--info {
+		.renderColor(@--color-info);
+	}
+	&.aex-text--warning {
+		.renderColor(@--color-warning);
+	}
+	&.aex-text--danger {
+		.renderColor(@--color-danger);
+	}
+
+	// 尺寸
+	&.aex-text--mini {
+		font-size: @--font-size-mini;
+		line-height: 18px;
+	}
+	&.aex-text--small {
+		font-size: @--font-size-small;
+		line-height: 20px;
+	}
+	&.aex-text--medium {
+		font-size: @--font-size-medium;
+		line-height: 24px;
+	}
+	&.aex-text--large {
+		font-size: @--font-size-large;
+		line-height: 26px;
+	}
+	&.aex-text--bigger {
+		font-size: @--font-size-bigger;
+		line-height: 28px;
+	}
+	&.aex-text--huge {
+		font-size: @--font-size-huge;
+		line-height: 34px;
+	}
+
+	// title
+	&.aex-text-title--h1 {
+		font-weight: 500;
+		.aex-text--huge();
+	}
+	&.aex-text-title--h2 {
+		font-weight: 500;
+		.aex-text--bigger();
+	}
+	&.aex-text-title--h3 {
+		font-weight: 500;
+		.aex-text--large();
+	}
+	&.aex-text-title--h4 {
+		font-weight: 500;
+		.aex-text--medium();
+	}
+
+	&.aex-text-ellipsis {
+		.mixins-ellipsis();
+		.aex-text-link {
+			width: 100%;
+			.mixins-ellipsis();
+		}
+	}
+
+	&.is-disabled {
+		color: @--font-color-disable !important;
+		.aex-text-link {
+			color: @--font-color-disable !important;
+			cursor: not-allowed;
+		}
+	}
+}

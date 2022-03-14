@@ -1,0 +1,31 @@
+@import 'common/var';
+
+.aex-avatar {
+	display: inline-block;
+	box-sizing: border-box;
+	text-align: center;
+	overflow: hidden;
+	// color: @--avatar-font-color;
+	// background: @--avatar-background-color;
+	width: @--avatar-size-base;
+	height: @--avatar-size-base;
+	line-height: @--avatar-size-base;
+	font-size: @--avatar-text-font-size;
+
+	> img {
+		display: block;
+		height: 100%;
+		width: 100%;
+		vertical-align: middle;
+	}
+
+	&--circle {
+		border-radius: 50%;
+	}
+	&--square {
+		border-radius: @--avatar-border-radius;
+	}
+	&--icon {
+		font-size: @--avatar-icon-font-size;
+	}
+}

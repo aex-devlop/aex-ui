@@ -1,0 +1,48 @@
+@import 'common/var';
+
+.aex-carousel {
+    &__item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        overflow: hidden;
+        z-index: @--index-normal - 1;
+
+        &.is-active {
+            z-index: @--index-normal - 1;
+        }
+        &.is-animating {
+            transition: transform 0.4s ease-in-out;
+        }
+
+        &--card {
+            width: 50%;
+            transition: transform 0.4s ease-in-out;
+            &.is-in-stage {
+                cursor: pointer;
+                z-index: @--index-normal;
+                &:hover .el-carousel__mask,
+                &.is-hover .el-carousel__mask {
+                    opacity: 0.12;
+                }
+            }
+            &.is-active {
+                z-index: @--index-normal + 1;
+            }
+        }
+    }
+
+    &__mask {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: @--color-white;
+        opacity: 0.24;
+        transition: 0.2s;
+    }
+}

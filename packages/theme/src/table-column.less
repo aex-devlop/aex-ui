@@ -1,0 +1,97 @@
+@import 'checkbox';
+@import 'tag';
+@import 'common/var';
+
+.aex-table .aex-table-column {
+    &--selection {
+        .cell {
+            padding-left: 14px;
+            padding-right: 14px;
+        }
+    }
+}
+
+// 这里类似dropdown-menu
+.aex-table-filter {
+    border: solid 1px @--border-color-base;
+    border-radius: 2px;
+    background-color: @--color-white;
+    box-shadow: @--dropdown-menu-box-shadow;
+    box-sizing: border-box;
+    margin: 2px 0;
+
+    /** used for dropdown mode */
+    &__list {
+        padding: 5px 0;
+        margin: 0;
+        list-style: none;
+        min-width: 100px;
+    }
+
+    &__list-item {
+        line-height: 36px;
+        padding: 0 10px;
+        cursor: pointer;
+        font-size: @--font-size-base;
+
+        &:hover {
+            background-color: @--dropdown-menuItem-hover-fill;
+            color: @--dropdown-menuItem-hover-color;
+        }
+
+        &.is-active {
+            background-color: @--color-primary;
+            color: @--color-white;
+        }
+    }
+
+    &__content {
+        min-width: 100px;
+    }
+
+    &__bottom {
+        border-top: 1px solid @--border-color-base;
+        padding: 8px;
+
+        button {
+            background: transparent;
+            border: none;
+            color: @--font-color-secondary;
+            cursor: pointer;
+            font-size: @--font-size-small;
+            padding: 0 3px;
+
+            &:hover {
+                color: @--color-primary;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &.is-disabled {
+                color: @--disabled-color-base;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    &__wrap {
+        max-height: 280px;
+    }
+
+    &__checkbox-group {
+        padding: 10px;
+
+        label.aex-checkbox {
+            display: block;
+            margin-right: 5px;
+            margin-bottom: 8px;
+            margin-left: 5px;
+        }
+
+        .aex-checkbox:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

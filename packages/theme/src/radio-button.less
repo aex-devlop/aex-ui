@@ -1,0 +1,125 @@
+@import 'common/var';
+
+.aex-radio-button {
+	position: relative;
+	display: inline-block;
+	outline: none;
+
+	&__inner {
+		display: inline-block;
+		line-height: 1;
+		white-space: nowrap;
+		vertical-align: middle;
+		background: @--color-white;
+		border: @--radio-input-border;
+		font-weight: @--button-font-weight;
+		border-left: 0;
+		color: @--color-gray-light-1;
+		-webkit-appearance: none;
+		text-align: center;
+		box-sizing: border-box;
+		outline: none;
+		margin: 0;
+		position: relative;
+		cursor: pointer;
+		transition: @--all-transition;
+
+		width: @--button-base-width;
+		height: @--button-base-height;
+		line-height: @--button-base-height;
+		font-size: @--button-base-font-size;
+		border-radius: 0;
+
+		&:hover {
+			color: @--color-primary;
+		}
+
+		& [class*='aex-icon-'] {
+			line-height: 0.9;
+
+			& + span {
+				margin-left: 5px;
+			}
+		}
+	}
+
+	&:first-child {
+		.aex-radio-button__inner {
+			border-left: @--border-base;
+			border-radius: 4px 0 0 4px;
+			box-shadow: none !important;
+		}
+	}
+
+	&__orig-radio {
+		opacity: 0;
+		outline: none;
+		position: absolute;
+		z-index: -1;
+
+		&:checked {
+			& + .aex-radio-button__inner {
+				color: @--radio-button-checked-font-color;
+				background-color: @--radio-button-checked-background-color;
+				border-color: @--radio-button-checked-border-color;
+				box-shadow: -1px 0 0 0 @--radio-button-checked-border-color;
+			}
+		}
+
+		&:disabled {
+			& + .aex-radio-button__inner {
+				color: @--disabled-color-base;
+				cursor: not-allowed;
+				background-image: none;
+				background-color: @--button-outline-background-color;
+				border-color: @--disabled-color-base;
+				box-shadow: none;
+			}
+			&:checked + .aex-radio-button__inner {
+				background-color: @--radio-button-disabled-checked-fill;
+			}
+		}
+	}
+
+	&:last-child {
+		.aex-radio-button__inner {
+			border-radius: 0 4px 4px 0;
+		}
+	}
+
+	&:first-child:last-child {
+		.aex-radio-button__inner {
+			border-radius: 4px;
+		}
+	}
+	&--medium {
+		& .aex-radio-button__inner {
+			width: @--button-medium-width;
+			height: @--button-medium-height;
+			line-height: @--button-medium-height;
+			font-size: @--button-medium-font-size;
+			border-radius: 0;
+		}
+	}
+	&--small {
+		& .aex-radio-button__inner {
+			width: @--button-small-width;
+			height: @--button-small-height;
+			line-height: @--button-small-height;
+			font-size: @--button-small-font-size;
+			border-radius: 0;
+		}
+	}
+	&--mini {
+		& .aex-radio-button__inner {
+			width: @--button-mini-width;
+			height: @--button-mini-height;
+			line-height: @--button-mini-height;
+			font-size: @--button-mini-font-size;
+			border-radius: 0;
+		}
+	}
+	&:focus:not(.is-focus):not(:active):not(.is-disabled) {
+		box-shadow: 0 0 2px 2px @--radio-button-checked-border-color;
+	}
+}

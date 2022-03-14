@@ -1,0 +1,287 @@
+@import 'common/var';
+
+.aex-tag {
+    display: inline-block;
+    height: 32px;
+    padding: @--tag-padding;
+    line-height: 30px;
+    font-size: @--tag-font-size;
+    color: @--color-primary;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: @--tag-border-radius;
+    box-sizing: border-box;
+    white-space: nowrap;
+
+    .aex-icon-close {
+        border-radius: 50%;
+        text-align: center;
+        position: relative;
+        cursor: pointer;
+        font-size: 12px;
+        height: 16px;
+        width: 16px;
+        line-height: 16px;
+        vertical-align: middle;
+        top: -1px;
+        right: -5px;
+
+        &::before {
+            display: block;
+        }
+    }
+
+    background-color: @--color-primary-light-2;
+    border-color: @--color-primary-light-2;
+    color: @--color-primary;
+    &.is-hit {
+        border-color: @--color-primary;
+    }
+    .aex-tag__close {
+        color: @--color-primary;
+        &:hover {
+            color: @--color-white;
+            background-color: @--color-primary;
+        }
+    }
+    &.aex-tag--info {
+        background-color: @--color-gray-light-6;
+        border-color: @--color-gray-light-5;
+        color: @--color-gray-light-2;
+        &.is-hit {
+            border-color: @--color-gray-light-5;
+        }
+        .aex-tag__close {
+            color: @--color-gray-light-2;
+            &:hover {
+                color: @--color-white;
+                background-color: @--color-gray-light-2;
+            }
+        }
+    }
+    &.aex-tag--success {
+        background-color: @--color-success-light-2;
+        border-color: @--color-success-light-2;
+        color: @--color-success;
+        &.is-hit {
+            border-color: @--color-success;
+        }
+        .aex-tag__close {
+            color: @--color-success;
+            &:hover {
+                color: @--color-white;
+                background-color: @--color-success;
+            }
+        }
+    }
+    &.aex-tag--warning {
+        background-color: @--color-warning-light-2;
+        border-color: @--color-warning-light-2;
+        color: @--color-warning;
+        &.is-hit {
+            border-color: @--color-warning;
+        }
+        .aex-tag__close {
+            color: @--color-warning;
+            &:hover {
+                color: @--color-white;
+                background-color: @--color-warning;
+            }
+        }
+    }
+    &.aex-tag--danger {
+        background-color: @--color-danger-light-2;
+        border-color: @--color-danger-light-2;
+        color: @--color-danger;
+        &.is-hit {
+            border-color: @--color-danger;
+        }
+        .aex-tag__close {
+            color: @--color-danger;
+            &:hover {
+                color: @--color-white;
+                background-color: @--color-danger;
+            }
+        }
+    }
+
+    &--dark {
+        background-color: @--color-primary;
+        border-color: @--color-primary;
+        color: @--color-white;
+        &.is-hit {
+            border-color: @--color-primary;
+        }
+        .aex-tag__close {
+            color: @--color-white;
+            &:hover {
+                color: @--color-primary;
+                background-color: @--color-white;
+            }
+        }
+        &.aex-tag--info {
+            background-color: @--color-gray-light-2;
+            border-color: @--color-gray-light-2;
+            color: @--color-white;
+            &.is-hit {
+                border-color: @--color-gray-light-2;
+            }
+            .aex-tag__close {
+                color: @--color-white;
+                &:hover {
+                    color: @--color-gray-light-2;
+                    background-color: @--color-white;
+                }
+            }
+        }
+        &.aex-tag--success {
+            background-color: @--color-success;
+            border-color: @--color-success;
+            color: @--color-white;
+            &.is-hit {
+                border-color: @--color-success;
+            }
+            .aex-tag__close {
+                color: @--color-white;
+                &:hover {
+                    color: @--color-success;
+                    background-color: @--color-white;
+                }
+            }
+        }
+        &.aex-tag--warning {
+            background-color: @--color-warning;
+            border-color: @--color-warning;
+            color: @--color-white;
+            &.is-hit {
+                border-color: @--color-warning;
+            }
+            .aex-tag__close {
+                color: @--color-white;
+                &:hover {
+                    color: @--color-warning;
+                    background-color: @--color-white;
+                }
+            }
+        }
+        &.aex-tag--danger {
+            background-color: @--color-danger;
+            border-color: @--color-danger;
+            color: @--color-white;
+            &.is-hit {
+                border-color: @--color-danger;
+            }
+            .aex-tag__close {
+                color: @--color-white;
+                &:hover {
+                    color: @--color-danger;
+                    background-color: @--color-white;
+                }
+            }
+        }
+    }
+
+    &--plain {
+        background-color: @--color-white;
+        border-color: @--color-primary;
+        color: @--color-primary;
+        &.is-hit {
+            border-color: @--color-primary;
+        }
+        .aex-tag__close {
+            color: @--color-primary;
+            &:hover {
+                color: @--color-white;
+                background-color: @--color-primary;
+            }
+        }
+        &.aex-tag--info {
+            background-color: @--color-white;
+            border-color: @--color-gray-light-2;
+            color: @--color-gray-light-2;
+            &.is-hit {
+                border-color: @--color-gray-light-2;
+            }
+            .aex-tag__close {
+                color: @--color-gray-light-2;
+                &:hover {
+                    color: @--color-white;
+                    background-color: @--color-gray-light-2;
+                }
+            }
+        }
+        &.aex-tag--success {
+            background-color: @--color-white;
+            border-color: @--color-success;
+            color: @--color-success;
+            &.is-hit {
+                border-color: @--color-success;
+            }
+            .aex-tag__close {
+                color: @--color-success;
+                &:hover {
+                    color: @--color-white;
+                    background-color: @--color-success;
+                }
+            }
+        }
+        &.aex-tag--warning {
+            background-color: @--color-white;
+            border-color: @--color-warning;
+            color: @--color-warning;
+            &.is-hit {
+                border-color: @--color-warning;
+            }
+            .aex-tag__close {
+                color: @--color-warning;
+                &:hover {
+                    color: @--color-white;
+                    background-color: @--color-warning;
+                }
+            }
+        }
+        &.aex-tag--danger {
+            background-color: @--color-white;
+            border-color: @--color-danger;
+            color: @--color-danger;
+            &.is-hit {
+                border-color: @--color-danger;
+            }
+            .aex-tag__close {
+                color: @--color-danger;
+                &:hover {
+                    color: @--color-white;
+                    background-color: @--color-danger;
+                }
+            }
+        }
+    }
+
+    &--medium {
+        height: 28px;
+        line-height: 26px;
+
+        .aex-icon-close {
+            transform: scale(0.8);
+        }
+    }
+    &--small {
+        height: 24px;
+        padding: 0 8px;
+        line-height: 22px;
+
+        .aex-icon-close {
+            transform: scale(0.8);
+        }
+    }
+    &--mini {
+        height: 20px;
+        padding: 0 5px;
+        line-height: 19px;
+
+        .aex-icon-close {
+            margin-left: -3px;
+            transform: scale(0.7);
+        }
+    }
+}

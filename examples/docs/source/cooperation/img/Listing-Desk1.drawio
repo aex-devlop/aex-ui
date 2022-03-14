@@ -1,0 +1,239 @@
+<mxfile host="65bd71144e">
+    <diagram id="x3dIp-WBaOKdCzWE7eGN" name="首页">
+        <mxGraphModel dx="1105" dy="582" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="1000" math="0" shadow="0">
+            <root>
+                <mxCell id="9qg0BQNLhJDkC5Bfl_Td-0"/>
+                <mxCell id="9qg0BQNLhJDkC5Bfl_Td-1" parent="9qg0BQNLhJDkC5Bfl_Td-0"/>
+                <mxCell id="9qg0BQNLhJDkC5Bfl_Td-4" value="客户端" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="9qg0BQNLhJDkC5Bfl_Td-1" vertex="1">
+                    <mxGeometry x="40" y="40" width="150" height="670" as="geometry"/>
+                </mxCell>
+                <mxCell id="9qg0BQNLhJDkC5Bfl_Td-5" value="服务端" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="9qg0BQNLhJDkC5Bfl_Td-1" vertex="1">
+                    <mxGeometry x="650" y="40" width="140" height="680" as="geometry"/>
+                </mxCell>
+                <mxCell id="HYHatkNMr7k8Sd-X-3Vb-0" value="返回 ieoProjectList&lt;br&gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" parent="9qg0BQNLhJDkC5Bfl_Td-5" target="9qg0BQNLhJDkC5Bfl_Td-4" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="70" y="110" as="sourcePoint"/>
+                        <mxPoint x="-10" y="110" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9qg0BQNLhJDkC5Bfl_Td-7" value="获取项目列表信息（默认先获取未过期的项目）&lt;br&gt;&lt;div style=&quot;color: rgb(191 , 199 , 213) ; background-color: rgb(41 , 45 , 62) ; font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;color: rgb(130 , 170 , 255)&quot;&gt;getIeoProjectList&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;" parent="9qg0BQNLhJDkC5Bfl_Td-1" source="9qg0BQNLhJDkC5Bfl_Td-4" target="9qg0BQNLhJDkC5Bfl_Td-5" edge="1">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="110" y="103" as="sourcePoint"/>
+                        <mxPoint x="689.5" y="103" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="450" y="103"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="HYHatkNMr7k8Sd-X-3Vb-6" value="" style="curved=1;endArrow=classic;html=1;" parent="9qg0BQNLhJDkC5Bfl_Td-1" source="9qg0BQNLhJDkC5Bfl_Td-4" target="9qg0BQNLhJDkC5Bfl_Td-4" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="120" y="270" as="sourcePoint"/>
+                        <mxPoint x="170" y="220" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="210" y="180"/>
+                            <mxPoint x="190" y="240"/>
+                            <mxPoint x="115" y="290"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="HYHatkNMr7k8Sd-X-3Vb-7" value="1，按要求根据类别将列表按&lt;br&gt;不同排列方式布局&lt;br&gt;（一行两列、三列）" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="HYHatkNMr7k8Sd-X-3Vb-6" vertex="1" connectable="0">
+                    <mxGeometry x="0.2177" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="HYHatkNMr7k8Sd-X-3Vb-8" value="" style="curved=1;endArrow=classic;html=1;" parent="9qg0BQNLhJDkC5Bfl_Td-1" target="9qg0BQNLhJDkC5Bfl_Td-4" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="114.5" y="358" as="sourcePoint"/>
+                        <mxPoint x="114.5" y="418" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="210" y="340"/>
+                            <mxPoint x="210" y="430"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="HYHatkNMr7k8Sd-X-3Vb-9" value="2，根据本地时间去算&lt;br&gt;预热、开始、结束时间&lt;br&gt;得出结果并修改相应项目&lt;br&gt;的样式" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="HYHatkNMr7k8Sd-X-3Vb-8" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0571" y="-4" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xkSai3OP9BfNO1yUOCUT-0" value="加载更多 ieoProjectList" style="html=1;verticalAlign=bottom;endArrow=block;" parent="9qg0BQNLhJDkC5Bfl_Td-1" edge="1">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="114.5" y="614" as="sourcePoint"/>
+                        <mxPoint x="719.5" y="614" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="500" y="614"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xkSai3OP9BfNO1yUOCUT-2" value="ieoProjectList&lt;br&gt;注意处理好分页" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" parent="9qg0BQNLhJDkC5Bfl_Td-1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="719.5" y="674" as="sourcePoint"/>
+                        <mxPoint x="114.5" y="674" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="370" y="674"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xkSai3OP9BfNO1yUOCUT-9" value="" style="curved=1;endArrow=classic;html=1;" parent="9qg0BQNLhJDkC5Bfl_Td-1" source="9qg0BQNLhJDkC5Bfl_Td-4" target="9qg0BQNLhJDkC5Bfl_Td-4" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="310" y="370" as="sourcePoint"/>
+                        <mxPoint x="370" y="430" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="160" y="480"/>
+                            <mxPoint x="200" y="510"/>
+                            <mxPoint x="160" y="570"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xkSai3OP9BfNO1yUOCUT-10" value="3，渲染相应数据，&lt;br&gt;注意这里需要注意&lt;br&gt;控制数据的精度展示" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="xkSai3OP9BfNO1yUOCUT-9" vertex="1" connectable="0">
+                    <mxGeometry x="0.1045" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="J8HiMVwURyJq4OZQfR-8" name="我的订单">
+        <mxGraphModel dx="1105" dy="582" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="1000" math="0" shadow="0">
+            <root>
+                <mxCell id="HEFfBTimHKnH7kaCmEbo-0"/>
+                <mxCell id="HEFfBTimHKnH7kaCmEbo-1" parent="HEFfBTimHKnH7kaCmEbo-0"/>
+                <mxCell id="cto_GToitXMS-avAsyEd-0" value="客户端" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="HEFfBTimHKnH7kaCmEbo-1" vertex="1">
+                    <mxGeometry x="60" y="40" width="110" height="520" as="geometry"/>
+                </mxCell>
+                <mxCell id="_Z4oUDuGtv597s1cze0l-0" value="服务端" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="HEFfBTimHKnH7kaCmEbo-1" vertex="1">
+                    <mxGeometry x="650" y="40" width="100" height="300" as="geometry"/>
+                </mxCell>
+                <mxCell id="_Z4oUDuGtv597s1cze0l-1" value="获取订单列表&lt;br&gt;注意做好分页" style="html=1;verticalAlign=bottom;endArrow=block;" parent="HEFfBTimHKnH7kaCmEbo-1" source="cto_GToitXMS-avAsyEd-0" target="_Z4oUDuGtv597s1cze0l-0" edge="1">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="120" y="130" as="sourcePoint"/>
+                        <mxPoint x="200" y="130" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="260" y="120"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="_Z4oUDuGtv597s1cze0l-2" value="按要求渲染好数据" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" parent="HEFfBTimHKnH7kaCmEbo-1" source="_Z4oUDuGtv597s1cze0l-0" target="cto_GToitXMS-avAsyEd-0" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="260" y="180" as="sourcePoint"/>
+                        <mxPoint x="180" y="180" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="X9JalXWDjFINuAVfom3N" name="项目详情">
+        <mxGraphModel dx="1105" dy="582" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="1000" math="0" shadow="0">
+            <root>
+                <mxCell id="5xtzbNKDW63M2faFPe1I-0"/>
+                <mxCell id="5xtzbNKDW63M2faFPe1I-1" parent="5xtzbNKDW63M2faFPe1I-0"/>
+                <mxCell id="kteX8N9hrofMNwEwoC8T-0" value="客户端" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="5xtzbNKDW63M2faFPe1I-1" vertex="1">
+                    <mxGeometry x="40" y="40" width="90" height="840" as="geometry"/>
+                </mxCell>
+                <mxCell id="kteX8N9hrofMNwEwoC8T-1" value="服务端" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="5xtzbNKDW63M2faFPe1I-1" vertex="1">
+                    <mxGeometry x="610" y="40" width="100" height="840" as="geometry"/>
+                </mxCell>
+                <mxCell id="kteX8N9hrofMNwEwoC8T-2" value="根据项目 ID 获取相应的详情&lt;br&gt;从 querystring 中获取" style="html=1;verticalAlign=bottom;endArrow=block;" parent="5xtzbNKDW63M2faFPe1I-1" source="kteX8N9hrofMNwEwoC8T-0" target="kteX8N9hrofMNwEwoC8T-1" edge="1">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="130" y="120" as="sourcePoint"/>
+                        <mxPoint x="210" y="120" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="250" y="120"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="kteX8N9hrofMNwEwoC8T-3" value="project detail&lt;br&gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" parent="5xtzbNKDW63M2faFPe1I-1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="659.5" y="169" as="sourcePoint"/>
+                        <mxPoint x="84.5" y="169" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="kteX8N9hrofMNwEwoC8T-4" value="" style="curved=1;endArrow=classic;html=1;" parent="5xtzbNKDW63M2faFPe1I-1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="84.5" y="191" as="sourcePoint"/>
+                        <mxPoint x="84.5" y="261" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="140" y="191"/>
+                            <mxPoint x="180" y="261"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="kteX8N9hrofMNwEwoC8T-6" value="按要求渲染数据&lt;br&gt;注意：按时间&lt;br&gt;计算项目的状态" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="kteX8N9hrofMNwEwoC8T-4" vertex="1" connectable="0">
+                    <mxGeometry x="-0.3193" y="-3" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="kteX8N9hrofMNwEwoC8T-7" value="从 project detail 中再请求&lt;br&gt;获取用户对应的余额" style="html=1;verticalAlign=bottom;endArrow=block;" parent="5xtzbNKDW63M2faFPe1I-1" edge="1">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="89.5" y="310" as="sourcePoint"/>
+                        <mxPoint x="659.5" y="310" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="H6QDwIAfdkkKyCM1l5LK-2" value="balance" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" parent="5xtzbNKDW63M2faFPe1I-1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="659.5" y="388" as="sourcePoint"/>
+                        <mxPoint x="84.5" y="388" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="470" y="388"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="H6QDwIAfdkkKyCM1l5LK-6" value="购买表单的业务处理&lt;br&gt;各种判断：&lt;br&gt;1，限额&lt;br&gt;2，计算当前余额是否能支付&lt;br&gt;3，各种弹窗提示" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;" parent="5xtzbNKDW63M2faFPe1I-1" edge="1">
+                    <mxGeometry x="0.1425" width="60" relative="1" as="geometry">
+                        <mxPoint x="84.5" y="560" as="sourcePoint"/>
+                        <mxPoint x="84.5" y="680" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="240" y="560"/>
+                            <mxPoint x="240" y="680"/>
+                        </Array>
+                        <mxPoint y="1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="H6QDwIAfdkkKyCM1l5LK-7" value="提交订单" style="html=1;verticalAlign=bottom;endArrow=block;" parent="5xtzbNKDW63M2faFPe1I-1" edge="1">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="84.5" y="753" as="sourcePoint"/>
+                        <mxPoint x="659.5" y="753" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="220" y="753"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="H6QDwIAfdkkKyCM1l5LK-8" value="提交订单成功后，再获取一次 project detail 和 balance， 相当于刷新页面" style="html=1;verticalAlign=bottom;endArrow=block;" parent="5xtzbNKDW63M2faFPe1I-1" edge="1">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="84.5" y="793" as="sourcePoint"/>
+                        <mxPoint x="659.5" y="793" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="470" y="793"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="H6QDwIAfdkkKyCM1l5LK-9" value="获取币百科的信息" style="html=1;verticalAlign=bottom;endArrow=block;" parent="5xtzbNKDW63M2faFPe1I-1" source="kteX8N9hrofMNwEwoC8T-0" target="kteX8N9hrofMNwEwoC8T-1" edge="1">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="130" y="450" as="sourcePoint"/>
+                        <mxPoint x="210" y="450" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="220" y="440"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="H6QDwIAfdkkKyCM1l5LK-10" value="获取到的数据，按原先的币百科的方式去渲染即可" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" parent="5xtzbNKDW63M2faFPe1I-1" source="kteX8N9hrofMNwEwoC8T-1" target="kteX8N9hrofMNwEwoC8T-0" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="400" y="490" as="sourcePoint"/>
+                        <mxPoint x="320" y="490" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="290" y="490"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="O5SBRCbLoorAnY5nlfl8-4" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;" edge="1" parent="5xtzbNKDW63M2faFPe1I-1" source="O5SBRCbLoorAnY5nlfl8-2">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="420" y="430" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="O5SBRCbLoorAnY5nlfl8-2" value="币百科注意事项&lt;br&gt;需要把原先的比百科的展开收起代码带过来，且人员介绍的部分是设计稿没有的，需要重做。焯！" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" vertex="1" parent="5xtzbNKDW63M2faFPe1I-1">
+                    <mxGeometry x="700" y="350" width="110" height="120" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

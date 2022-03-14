@@ -1,0 +1,37 @@
+
+@import "common/var";
+@import "common/mixins";
+
+.aex-row {
+    position: relative;
+    box-sizing: border-box;
+    .mixins-clearfix();
+
+    &.aex-row--flex {
+        display: flex;
+        &:before,
+        &:after {
+          display: none;
+        } 
+    }
+
+    &.is-justify-center {
+        justify-content: center;
+    }
+    &.is-justify-end {
+        justify-content: flex-end;
+    }
+    &.is-justify-between {
+        justify-content: space-between;
+    }
+    &.is-justify-around {
+        justify-content: space-around;
+    }
+    &.is-align-center {
+        align-items: center;
+    }
+    &.is-align-bottom {
+        align-items: flex-end;
+    }
+}
+

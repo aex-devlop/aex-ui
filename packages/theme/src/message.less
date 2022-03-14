@@ -1,0 +1,118 @@
+@import 'common/var';
+
+.aex-message {
+	min-width: @--message-min-width;
+	box-sizing: border-box;
+	border-radius: 6px;
+	border: @--border-base;
+	position: fixed;
+	left: 50%;
+	top: 66px;
+	transform: translateX(-50%);
+	background-color: @--message-color-default;
+	transition: opacity 0.3s, transform 0.4s, top 0.4s;
+	overflow: hidden;
+	padding: @--message-padding;
+	display: flex;
+	align-items: center;
+
+	&.is-center {
+		justify-content: center;
+	}
+
+	&.is-closable {
+		.aex-message__content {
+			padding-right: 16px;
+		}
+	}
+
+	p {
+		margin: 0;
+	}
+
+	&.aex-message--info {
+		background-color: @--color-info-light-2;
+		border-color: @--color-info-light-1;
+		.aex-message__content {
+			color: @--color-info;
+		}
+	}
+	&.aex-message--success {
+		background-color: @--color-success-light-2;
+		border-color: @--color-success-light-1;
+		.aex-message__content {
+			color: @--color-success;
+		}
+	}
+	&.aex-message--warning {
+		background-color: @--color-warning-light-2;
+		border-color: @--color-warning-light-1;
+		.aex-message__content {
+			color: @--color-warning;
+		}
+	}
+	&.aex-message--error {
+		background-color: @--color-danger-light-2;
+		border-color: @--color-danger-light-1;
+		.aex-message__content {
+			color: @--color-danger;
+		}
+	}
+
+	//   给字体图标留个位置
+	& .aex-message__icon {
+		margin-right: 10px;
+	}
+
+	& .aex-message__content {
+		padding: 0;
+		font-size: 14px;
+		line-height: 1;
+		&:focus {
+			outline-width: 0;
+		}
+	}
+
+	& .aex-message__closeBtn {
+		position: absolute;
+		top: 50%;
+		right: 15px;
+		transform: translateY(-50%);
+		cursor: pointer;
+		color: @--message-close-icon-color;
+		font-size: @--message-close-size;
+
+		&:focus {
+			outline-width: 0;
+		}
+		&:hover {
+			color: @--message-close-hover-color;
+		}
+	}
+
+	// 字体图标颜色
+	// aex-icon-success
+	& .aex-icon-success {
+		color: @--color-success;
+	}
+
+	// aex-icon-danger
+	& .aex-icon-error {
+		color: @--color-danger;
+	}
+
+	// aex-icon-info
+	& .aex-icon-info {
+		color: @--color-info;
+	}
+
+	// aex-icon-warning
+	& .aex-icon-warning {
+		color: @--color-warning;
+	}
+}
+.aex-message-fade-enter,
+.aex-message-fade-leave-active {
+	opacity: 0;
+	transform: translate(-50%, -100%);
+}
