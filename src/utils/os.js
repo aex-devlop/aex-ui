@@ -67,25 +67,27 @@ const infoMap = {
 const root = typeof self !== 'undefined' ? self : this;
 let _window = root || {};
 const navigator = typeof root.navigator != 'undefined' ? root.navigator : {};
-const ua = navigator.userAgent || {};
-export const isAndroid = !!ua.match(/Android/i);
+const ua = !Vue.prototype.$isServer && (navigator.userAgent || {});
+export const isAndroid = ua && !!ua.match(/Android/i);
 
-export const isIE = !isNaN(Number(document.documentMode));
+export const isIE = !Vue.prototype.$isServer && !isNaN(Number(document.documentMode));
 
-export const isEdge = ua.indexOf('Edge') > -1;
+export const isEdge = ua && ua.indexOf('Edge') > -1;
 
-export const isFirefox = !!ua.match(/Firefox/i);
+export const isFirefox = ua && !!ua.match(/Firefox/i);
 
-export const isChrome = !!ua.match(/Chrome|CriOS/i);
-export const isWindowsPhone = !!ua.match(/Windows Phone/i);
-export const isSymbian = !!ua.match(/SymbianOS/i) || isWindowsPhone;
-export const isTablet = !!ua.match(/iPad|PlayBook/i) || (isAndroid && !ua.match(/Mobile/i)) || (isFirefox && !!ua.match(/Tablet/i));
-export const isPhone = !!ua.match(/iPhone/i) && !isTablet;
+export const isChrome = ua && !!ua.match(/Chrome|CriOS/i);
+export const isWindowsPhone = ua && !!ua.match(/Windows Phone/i);
+export const isSymbian = ua && (!!ua.match(/SymbianOS/i) || isWindowsPhone);
+export const isTablet = ua && (!!ua.match(/iPad|PlayBook/i) || (isAndroid && !ua.match(/Mobile/i)) || (isFirefox && !!ua.match(/Tablet/i)));
+export const isPhone = ua && (!!ua.match(/iPhone/i) && !isTablet);
 
 export const isPC = !isPhone && !isAndroid && !isSymbian;
-export const isMobile = !!ua.match(
-	/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
-);
+export const isMobile =
+	ua &&
+	!!ua.match(
+		/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+	);
 
 // 获取匹配
 const getMatchMap = () => {
@@ -469,6 +471,7 @@ const getBrowserInfo = (baseInfo) => {
 	return browserVersion;
 };
 export const getDeviceInfo = () => {
+	if (!Vue.prototype.$isServer) return {};
 	let baseInfo = matchInfoMap();
 	return {
 		deviceType: baseInfo.device, // 设备类型
