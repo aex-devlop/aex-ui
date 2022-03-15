@@ -1,3 +1,4 @@
+import Vue from 'vue';
 const infoMap = {
 	engine: ['WebKit', 'Trident', 'Gecko', 'Presto'],
 	browser: [
@@ -66,7 +67,7 @@ const infoMap = {
 };
 const root = typeof self !== 'undefined' ? self : this;
 let _window = root || {};
-const navigator = typeof root.navigator != 'undefined' ? root.navigator : {};
+const navigator = !Vue.prototype.$isServer && typeof root.navigator != 'undefined' ? root.navigator : {};
 const ua = !Vue.prototype.$isServer && (navigator.userAgent || {});
 export const isAndroid = ua && !!ua.match(/Android/i);
 
