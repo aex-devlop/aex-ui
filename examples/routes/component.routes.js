@@ -175,12 +175,12 @@ export default {
 					path: 'image',
 					component: () => import('../docs/image.md')
 				},
-				{
-					title: 'Carousel 轮播图',
-					name: 'carousel',
-					path: 'carousel',
-					component: () => import('../docs/carousel.md')
-				},
+				// {
+				// 	title: 'Carousel 轮播图',
+				// 	name: 'carousel',
+				// 	path: 'carousel',
+				// 	component: () => import('../docs/carousel.md')
+				// },
 				{
 					title: 'Steps 步骤条',
 					name: 'steps',

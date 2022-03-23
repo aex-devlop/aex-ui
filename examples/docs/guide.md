@@ -3,9 +3,7 @@
 ## 安装依赖
 
 ```
-yarn add git+ssh://git@192.168.1.6:10022/AEX_WEB/aex-ui.git
-或者
-yarn add git+http://git@192.168.1.6:10022/AEX_WEB/aex-ui.git
+yarn add aex-ui
 
 ```
 
@@ -15,21 +13,13 @@ yarn add git+http://git@192.168.1.6:10022/AEX_WEB/aex-ui.git
 yarn upgrade aex-ui
 ```
 
-默认安装的是 master 分支, 也可以安装其他指定的分支或指定tag:
-
-```
-// 安装tag为v0.1.0: 
-yarn add git+ssh://git@192.168.1.6:10022/AEX_WEB/aex-ui.git#v0.1.0   
-
-// 安装dev分支:
-yarn add git+ssh://git@192.168.1.6:10022/AEX_WEB/aex-ui.git#dev
-```
-
 ## 本地安装
 
 将代码clone 到本地, 然后修改package.json，然后 yarn 安装即可:
 
 ```
+git clone https://github.com/aex-devlop/aex-ui.git
+
   "dependencies": {
     "aex-ui": "file:./aex-ui", 添加此行，file: 换成你本地的路径
     ...

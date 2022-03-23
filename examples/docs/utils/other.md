@@ -25,11 +25,11 @@ importCDN(CDNUrl, name)
 
 示例：
 
-// cnd 文件 https://aexphoto-1251755124.file.myqcloud.com/js/config/layout.js
+// cnd 文件 https://cdn.aex.news/js/config/layout.js
 var CND_HEADER_CONF = [1, 2, 3]
 
 // 引入
-importCDN('https://aexphoto-1251755124.file.myqcloud.com/js/config/layout.js', 'CND_HEADER_CONF').then(res => {
+importCDN('https://cdn.aex.news/js/config/layout.js', 'CND_HEADER_CONF').then(res => {
     console.log(res) // ---> [1, 2, 3]
 })
 ```

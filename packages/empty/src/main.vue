@@ -39,7 +39,7 @@ export default {
 		baseUrl: {
 			type: String,
 			default:
-				'https://aexphoto-1251755124.file.myqcloud.com/img/image_tips'
+				'https://cdn.aex.news/img/image_tips'
 		},
 		text: String,
 		buttonText: String

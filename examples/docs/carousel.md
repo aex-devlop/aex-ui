@@ -90,16 +90,16 @@ Vue.use(Carousel,CarouselItem)
 <template>
     <aex-carousel height="200px" arrow='never' trigger='click' class='custom'>
         <aex-carousel-item style='border-radius: 10px'>
-            <img style='width:100%' src='https://aexphoto-1251755124.file.myqcloud.com/img/2021/06/d643478fcf6a246a991811a7ec12a48d.png'>
+            <img style='width:100%' src='https://cdn.aex.news/img/2021/06/d643478fcf6a246a991811a7ec12a48d.png'>
         </aex-carousel-item>
         <aex-carousel-item style='border-radius: 10px'>
-            <img style='width:100%' src='https://aexphoto-1251755124.file.myqcloud.com/img/2021/06/6e40c554ab774810a17d858e7d4285e0.png'>
+            <img style='width:100%' src='https://cdn.aex.news/img/2021/06/6e40c554ab774810a17d858e7d4285e0.png'>
         </aex-carousel-item>
         <aex-carousel-item style='border-radius: 10px'>
-            <img style='width:100%' src='https://aexphoto-1251755124.file.myqcloud.com/img/2021/06/83f6dbe4b70908d483e7bf85b03558bb.png'>
+            <img style='width:100%' src='https://cdn.aex.news/img/2021/06/83f6dbe4b70908d483e7bf85b03558bb.png'>
         </aex-carousel-item>
         <aex-carousel-item style='border-radius: 10px'>
-            <img style='width:100%' src='https://aexphoto-1251755124.file.myqcloud.com/img/2021/06/a43e64a5baab8ab62a72faddf6f9382d.png'>
+            <img style='width:100%' src='https://cdn.aex.news/img/2021/06/a43e64a5baab8ab62a72faddf6f9382d.png'>
         </aex-carousel-item>
     </aex-carousel>
 </template>
