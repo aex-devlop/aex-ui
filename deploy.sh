@@ -26,7 +26,7 @@ if echo "$updata_doc" | grep -iq "^y"; then
     cd ./examples/aex-ui-doc || exit
     git add .
     git commit -m "$1"
-    git push
+    git push origin master --force
     echo -e "\033[41;33m -------文档更新完毕！！！------- \033[0m"
     cd ../..
 fi

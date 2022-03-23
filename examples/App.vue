@@ -27,17 +27,17 @@ export default {
 		return { activeIndex: '/components/guide' };
 	},
 	mounted() {
-		L2Dwidget.init({
-			pluginRootPath: 'live2dw/',
-			pluginJsPath: 'lib/',
-			pluginModelPath: 'live2d-widget-model-tororo/assets/',
-			tagMode: true,
-			debug: false,
-			model: { jsonPath: '/live2dw/live2d-widget-model-tororo/assets/tororo.model.json' },
-			display: { position: 'right', width: 150, height: 300, hOffset: 0, vOffset: 50 },
-			mobile: { show: true },
-			log: false
-		});
+		// L2Dwidget.init({
+		// 	pluginRootPath: 'live2dw/',
+		// 	pluginJsPath: 'lib/',
+		// 	pluginModelPath: 'live2d-widget-model-tororo/assets/',
+		// 	tagMode: true,
+		// 	debug: false,
+		// 	model: { jsonPath: '/live2dw/live2d-widget-model-tororo/assets/tororo.model.json' },
+		// 	display: { position: 'right', width: 150, height: 300, hOffset: 0, vOffset: 50 },
+		// 	mobile: { show: true },
+		// 	log: false
+		// });
 	}
 };
 </script>

@@ -3,12 +3,12 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-		<link rel="stylesheet" href="//at.alicdn.com/t/font_137970_p1tpzmomxp9cnmi.css" />
-		<link
+		<!-- <link rel="stylesheet" href="//at.alicdn.com/t/font_137970_p1tpzmomxp9cnmi.css" /> -->
+		<!-- <link
 			rel="mask-icon"
 			href="https://raw.githubusercontent.com/ElemeFE/element/dev/examples/assets/images/element-logo-small.svg"
 			color="#409EFF"
-		/>
+		/> -->
 		<link rel="stylesheet" href="//shadow.elemecdn.com/npm/highlight.js@9.3.0/styles/color-brewer.css" />
 		<title>Aex UI</title>
 		<meta name="description" content="Aex UI" />
@@ -27,7 +27,7 @@
 		<script src="//shadow.elemecdn.com/npm/vue-router@3.0.1/dist/vue-router.min.js"></script>
 		<script src="//shadow.elemecdn.com/app/element/highlight.pack.b1f71b31-3c07-11e9-ba1a-55bba1877129.js"></script>
 		<% } %>
-		<script src="/live2dw/lib/L2Dwidget.min.js"></script>
+		<!-- <script src="/live2dw/lib/L2Dwidget.min.js"></script> -->
 	</body>
 	<% if (process.env.NODE_ENV === 'production') { %><script>
 		(function(i, s, o, g, r, a, m) {
