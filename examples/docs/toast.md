@@ -17,14 +17,21 @@ Vue.prototype.$toast = Toast;
 
 ```html
 <template>
-    <aex-button :plain="true" @click="open">打开消息提示</aex-button>
+    <aex-button :plain="true" @click="open1">打开消息提示</aex-button>
+    <aex-button :plain="true" @click="open2">自定义样式</aex-button>
 </template>
 
 <script>
     export default {
         methods: {
-            open() {
+            open1() {
                 this.$toast('这是一条消息提示');
+            },
+            open2() {
+                this.$toast({
+                    message: '自定义样式',
+                    customClass: 'toast-custom'
+                });
             },
         }
     }
