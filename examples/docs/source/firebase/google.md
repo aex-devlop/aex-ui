@@ -1,5 +1,10 @@
 # Firebase第三方登录（google）
 
+:::tip
+资料整理: 付永顺   
+更新日期: 2022-03-01
+:::
+
 **网址**：https://firebase.google.com
 
 **准备**：需公司申请一个firebase账号，相应的开发人员开通相应权限
@@ -77,7 +82,6 @@ googleLogin() {
 
 **可能出现的问题：**
 
-
 问题一：无法唤起第三方登录弹窗？
 
 原因：网络请求报错，拿不到步骤三设置的白名单网域(重新检查配置、VPN不稳定等）、环境问题和运维沟通
@@ -98,14 +102,13 @@ googleLogin() {
 }
 ```
 
-
 问题二：正式环境无法弹起
 
 原因：可能需要运维将https://apis.google.com、https://identitytoolkit.googleapis.com、https://www.googleapis.com等添加到Content-Security-Policy(csp)，具体看报错
 
 **优化问题：**
 
-`这不是bug，只是浏览器的特性，能处理的是第三方的退出和登录。如第三方每次登陆需要输入密码和账户的话，那第三方登录就没啥意义了，只是阐述有这么个问题存在，不是设置了没效果`
+ `这不是bug，只是浏览器的特性，能处理的是第三方的退出和登录。如第三方每次登陆需要输入密码和账户的话，那第三方登录就没啥意义了，只是阐述有这么个问题存在，不是设置了没效果`
 
 问题三：第一次授权登录后，会自动记录Google账号，不能切换谷歌账号（除非手动清除浏览器缓存）
 
@@ -116,29 +119,37 @@ googleLogin() {
 方式一：firebase中的signOut方法
 
 ```js
-import { getAuth, signOut } from "firebase/auth";
+import {
+    getAuth,
+    signOut
+} from "firebase/auth";
 
 const auth = getAuth();
 
 signOut(auth).then(() => {
 
-  //这里写退出登录后的逻辑处理
+    //这里写退出登录后的逻辑处理
 
-  // Sign-out successful.
+    // Sign-out successful.
 
 }).catch((error) => {
 
-  // An error happened.
+    // An error happened.
 
 });
 ```
 
-方式二：修改firebase身份验证状态保留方式,firebase里面有三种Auth状态保留(local、session、none)，上述情况是默认的local保留,现在改为session(以signInWithPopup为例)
+方式二：修改firebase身份验证状态保留方式, firebase里面有三种Auth状态保留(local、session、none)，上述情况是默认的local保留, 现在改为session(以signInWithPopup为例)
 
 网址：https://firebase.google.com/docs/auth/web/auth-state-persistence?authuser=0
 
 ```js
-import { getAuth, setPersistence, signInWithPopup, browserSessionPersistence } from "firebase/auth";
+import {
+    getAuth,
+    setPersistence,
+    signInWithPopup,
+    browserSessionPersistence
+} from "firebase/auth";
 
 const auth = getAuth();
 
@@ -146,23 +157,23 @@ const auth = getAuth();
 
 setPersistence(auth, browserSessionPersistence)
 
-  .then(() => {
+    .then(() => {
 
-    //return signInWithEmailAndPassword(auth, email, password);
+        //return signInWithEmailAndPassword(auth, email, password);
 
-    //return signInWithRedirect(auth, provider);
+        //return signInWithRedirect(auth, provider);
 
-   return signInWithPopup(auth, provider)//根据你使用的方式进行修改,对应上述的导入方式
+        return signInWithPopup(auth, provider) //根据你使用的方式进行修改,对应上述的导入方式
 
-  })
+    })
 
-  .catch((error) => {
+    .catch((error) => {
 
-   const errorCode = error.code;
+        const errorCode = error.code;
 
-   const errorMessage = error.message;
+        const errorMessage = error.message;
 
-  });
+    });
 ```
 
 完整代码
@@ -170,24 +181,24 @@ setPersistence(auth, browserSessionPersistence)
 ```js
 // 第三方谷歌登录
 googleLogin() {
-	signOut(auth).then(() => {
-		setPersistence(auth, browserSessionPersistence)
-			.then(() => {
-				return signInWithPopup(auth, provider)
-					.then((result) => {
-						console.log(result,'用户信息');
-						})
-					.catch((error) => {
-						console.log(error, '错误信息');
-						});
-					})
-			.catch((error) => {
-					// Handle Errors here.
-					const errorCode = error.code;
-					const errorMessage = error.message;
-				});
-			});
-		},
+    signOut(auth).then(() => {
+        setPersistence(auth, browserSessionPersistence)
+            .then(() => {
+                return signInWithPopup(auth, provider)
+                    .then((result) => {
+                        console.log(result, '用户信息');
+                    })
+                    .catch((error) => {
+                        console.log(error, '错误信息');
+                    });
+            })
+            .catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
+    });
+},
 ```
 
 **非代码处理（针对浏览器）**

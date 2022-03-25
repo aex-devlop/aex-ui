@@ -47,16 +47,22 @@ export default {
 			component: () => import('../docs/source/firebase/google.md')
 		},
 		{
-			title: '关于代码设计与多人协作存在的问题与解决方案',
+			title: '代码设计与多人协作',
 			name: 'cooperation',
 			path: 'cooperation',
 			component: () => import('../docs/source/cooperation/index.md')
 		},
 		{
-			title: 'vuex-persistedstate持久化状态',
+			title: 'vuex 持久化状态',
 			name: 'vuex-persistedstate',
 			path: 'vuex-persistedstate',
 			component: () => import('../docs/source/vuex-persistedstate/index.md')
+		},
+		{
+			title: 'telegram 登录',
+			name: 'telegram',
+			path: 'telegram',
+			component: () => import('../docs/source/telegram/index.md')
 		}
 	]
 };

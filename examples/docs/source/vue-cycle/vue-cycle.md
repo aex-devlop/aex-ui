@@ -1,5 +1,10 @@
 ## **Vue 生命周期**
 
+:::tip
+资料整理: 黄晓妮      
+更新日期: 2021-11-01
+:::
+
 ![img](./img/1.png)
 
 生命周期流程图
@@ -47,26 +52,26 @@ Vue 实例从创建到销毁的过程，根据流程图大致可以分为四个�
 <div id="app">{{el}}</div>
 
 <script>
-	var app = new Vue({
-		el: '#app',
-		data: {
-			el: '通过el渲染',
-			template: '通过template渲染',
-			render: '通过render渲染'
-		},
-		template: '<div>{{ template }}</div>',
-		render(h) {
-			return h('div', this.render);
-		}
-	});
-	//页面呈现的是 通过render渲染
-	//优先级 render -> template -> el
+    var app = new Vue({
+        el: '#app',
+        data: {
+            el: '通过el渲染',
+            template: '通过template渲染',
+            render: '通过render渲染'
+        },
+        template: '<div>{{ template }}</div>',
+        render(h) {
+            return h('div', this.render);
+        }
+    });
+    //页面呈现的是 通过render渲染
+    //优先级 render -> template -> el
 </script>
 ```
 
 不管是用 el 还是 template 或者是我们常用的.vue 文件，最终都是转为 render 函数。
 
-Vue 基于源码构建的版本有两个：1.完整版 2.只包含运行时版
+Vue 基于源码构建的版本有两个：1. 完整版 2. 只包含运行时版
 
 两个版本的区别仅在于后者包含了一个编译器，拥有创建 vue 实例、渲染并处理虚拟 dom 等功能，使用 vue-loader 或 vueift 时，模板在构建时预编译成渲染函数，初始化阶段直接进入挂载阶段，模板编译阶段只存在于完整版。
 
@@ -82,7 +87,7 @@ callHook(vm, 'beforeMount');
 let updateComponent;
 
 updateComponent = function() {
-	vm._update(vm._render(), hydrating);
+    vm._update(vm._render(), hydrating);
 };
 ```
 
@@ -98,43 +103,42 @@ updateComponent = function() {
 
 ```js
 export function mountComponent(vm, el, hydrating) {
-	vm.$el = el;
-	if (!vm.$options.render) {
-		vm.$options.render = createEmptyVNode;
-	}
-	callHook(vm, 'beforeMount');
+    vm.$el = el;
+    if (!vm.$options.render) {
+        vm.$options.render = createEmptyVNode;
+    }
+    callHook(vm, 'beforeMount');
 
-	let updateComponent;
+    let updateComponent;
 
-	updateComponent = () => {
-		vm._update(vm._render(), hydrating);
-	};
-	new Watcher(
-		vm,
-		updateComponent,
-		noop,
-		{
-			before() {
-				if (vm._isMounted) {
-					callHook(vm, 'beforeUpdate');
-				}
-			}
-		},
-		true /* isRenderWatcher */
-	);
-	hydrating = false;
+    updateComponent = () => {
+        vm._update(vm._render(), hydrating);
+    };
+    new Watcher(
+        vm,
+        updateComponent,
+        noop, {
+            before() {
+                if (vm._isMounted) {
+                    callHook(vm, 'beforeUpdate');
+                }
+            }
+        },
+        true /* isRenderWatcher */
+    );
+    hydrating = false;
 
-	if (vm.$vnode == null) {
-		vm._isMounted = true;
-		callHook(vm, 'mounted');
-	}
-	return vm;
+    if (vm.$vnode == null) {
+        vm._isMounted = true;
+        callHook(vm, 'mounted');
+    }
+    return vm;
 }
 ```
 
 从挂载的源码可以看出，创建了一个 Watcher 实例，并将定义好的 updateComponent 函数传入。要想开启对模板中数据（状态）的监控。
 
-当我们状态数据发生变化时,触发了 beforeUpdate 生命周期函数，要开始将我们变化后的数据渲染到页面上了（判断当前的\_isMounted 是不是为 ture 并且\_isDestroyed 是不是为 false，也就是说，保证 dom 已经被挂载的情况下，且当前组件并未被销毁，才会走 update 流程）。
+当我们状态数据发生变化时, 触发了 beforeUpdate 生命周期函数，要开始将我们变化后的数据渲染到页面上了（判断当前的\_isMounted 是不是为 ture 并且\_isDestroyed 是不是为 false，也就是说，保证 dom 已经被挂载的情况下，且当前组件并未被销毁，才会走 update 流程）。
 
 beforeUpdate 调用之后，我们又会重新生成一个新的虚拟 dom(Vnode)，然后会拿这个最新的 Vnode 和原来的 Vnode 去做一个 diff 算，这里就涉及到一系列的计算，算出最小的更新范围，从而更新 render 函数中的最新数据，再将更新后的 render 函数渲染成真实 dom。也就完成了我们的数据更新
 
@@ -218,44 +222,44 @@ beforeDestroy 生命周期是实例销毁前，在这个函数内，还是可以
 ```js
 // 子组件
 Vue.component('child', {
-	template: '<h1>child</h1>',
-	props: ['message'],
-	beforeCreate() {
-		console.log('I am child beforeCreated');
-	},
-	created() {
-		console.log('I am child created');
-	},
-	beforeMount() {
-		console.log('I am child beforeMount');
-	},
-	mounted() {
-		console.log(this.message); // null
-		console.log('I am child mounted');
-	}
+    template: '<h1>child</h1>',
+    props: ['message'],
+    beforeCreate() {
+        console.log('I am child beforeCreated');
+    },
+    created() {
+        console.log('I am child created');
+    },
+    beforeMount() {
+        console.log('I am child beforeMount');
+    },
+    mounted() {
+        console.log(this.message); // null
+        console.log('I am child mounted');
+    }
 });
 // 父组件
 new Vue({
-	el: '#app',
-	template: `
+    el: '#app',
+    template: `
 	<div id='parent'><child :message='message'></child></div>
   `,
-	data: {
-		message: null
-	},
-	beforeCreate() {
-		console.log('I am parents beforeCreated');
-	},
-	created() {
-		console.log('I am parents created');
-	},
-	beforeMount() {
-		console.log('I am parents beforeMount');
-	},
-	mounted() {
-		this.message = 'this is message';
-		console.log('I am parents mounted');
-	}
+    data: {
+        message: null
+    },
+    beforeCreate() {
+        console.log('I am parents beforeCreated');
+    },
+    created() {
+        console.log('I am parents created');
+    },
+    beforeMount() {
+        console.log('I am parents beforeMount');
+    },
+    mounted() {
+        this.message = 'this is message';
+        console.log('I am parents mounted');
+    }
 });
 ```
 
@@ -298,8 +302,9 @@ null
 方法一：定时器的方法或者生命周期函数中声明并销毁
 
 1. 首先在 vue 实例的 data 中定义定时器的名称：
+    
 
-    ```
+```
     export default {
     	data() {
     		timer: null;
@@ -309,15 +314,18 @@ null
 
 2) 在方法（methods）或者页面初始化（mounted()）的时候使用定时器
 
-    ```
+    
+
+```
     this.timer = setInterval(() => {
     	//需要做的事情
     }, 1000);
     ```
 
 3. 然后在页面销毁的生命周期函数（beforeDestroy()）中销毁定时器
+    
 
-    ```
+```
     export default {
     	data() {
     		timer: null;
@@ -331,7 +339,7 @@ null
     };
     ```
 
-方法二：使用 this.\$once(‘hook:beforeDestory’,()=>{}); 直接在需要定时器的方法或者生命周期函数中声明并销毁
+方法二：使用 this.\$once(‘hook:beforeDestory’, ()=>{}); 直接在需要定时器的方法或者生命周期函数中声明并销毁
 
 ```
 export default {
@@ -352,9 +360,9 @@ export default {
 ```
 
 方法一存在的问题：
-（1）vue 实例中需要有这个定时器的实例，感觉有点多余;
+（1）vue 实例中需要有这个定时器的实例，感觉有点多余; 
 
-（2）创建的定时器代码和销毁定时器的代码没有放在一起，通常很容易忘记去清理这个定时器，不容易维护;
+（2）创建的定时器代码和销毁定时器的代码没有放在一起，通常很容易忘记去清理这个定时器，不容易维护; 
 
 因此推荐用方法二
 
@@ -366,35 +374,35 @@ export default {
 
 ```html
 <div class="test">
-	<children v-if="data1" :data="data1"></children>
+    <children v-if="data1" :data="data1"></children>
 </div>
 ```
 
-在渲染子组件的时候加上一个条件,data1 是父组件调用接口返回的数据。当有数据的时候在去渲染子组件。这样就会形成天然的阻塞。在父组件的 created 中的请求返回数据后，才会执行子组件的 created，mounted。最后执行父组件的 mounted。
+在渲染子组件的时候加上一个条件, data1 是父组件调用接口返回的数据。当有数据的时候在去渲染子组件。这样就会形成天然的阻塞。在父组件的 created 中的请求返回数据后，才会执行子组件的 created，mounted。最后执行父组件的 mounted。
 
 解决方法二：
 
 在子组件中 watch 监听，父组件获取到值，这个值就会变化，自然是可以监听到的
 
 ```js
-watch:{
+watch: {
 
-  data:{
+    data: {
 
-   deep:true,
+        deep: true,
 
-   handler:function(newVal,oldVal) {
-    this.$nextTick(() => {
+        handler: function(newVal, oldVal) {
+            this.$nextTick(() => {
 
-     this.data = newVal
+                this.data = newVal
 
-     this.data = newVal.url ? newVal.url : ''
+                this.data = newVal.url ? newVal.url : ''
 
-    })
+            })
 
-   }
+        }
 
-  },
+    },
 
 }
 ```
@@ -402,29 +410,29 @@ watch:{
 从父组件点击调用接口并显示子组件，子组件拿到数据并监听在 watch 中调用方法并显示
 
 ```js
-props:['data1'],
+props: ['data1'],
 
-watch:{
+    watch: {
 
-  data1:{
+        data1: {
 
-   deep:true,
+            deep: true,
 
-   handler:function(newVal,oldVal) {
+            handler: function(newVal, oldVal) {
 
-    this.$nextTick(() => {
+                this.$nextTick(() => {
 
-     this.data1 = newVal
+                    this.data1 = newVal
 
-     this.showData1(this.data1)
+                    this.showData1(this.data1)
 
-    })
+                })
 
-   }
+            }
 
-  },
+        },
 
-}
+    }
 ```
 
 **（3）避免在 updated 更改状态，因为这可能会导致更新无限循环。**
@@ -441,7 +449,7 @@ v-if 适用于在运行时很少改变条件，不需要频繁切换条件的场
 
 **（5）KEY 的重要性**
 
-使用 v-for 更新已渲染的元素列表时，默认用就地复用策略；列表数据修改的时候，他会根据 key 值去判断某个值是否修改，如果修改，则重新渲染这一项,否则复用之前的元素；
+使用 v-for 更新已渲染的元素列表时，默认用就地复用策略；列表数据修改的时候，他会根据 key 值去判断某个值是否修改，如果修改，则重新渲染这一项, 否则复用之前的元素；
 
 在循环中应使用 key，且最好不要是 index 或者 random。diff 算法中通过 tag 和 key 来判断是否是同一个节点（sameNode），使用 key 可以减少渲染次数，提高渲染性能。
 
