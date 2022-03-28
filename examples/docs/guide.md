@@ -3,7 +3,11 @@
 ## 安装依赖
 
 ```
+// 按照package.josn 的版本规则更新
 yarn add aex-ui
+
+// 无视规则直接更新到最新版本
+yarn upgrade --latest aex-ui
 
 ```
 
