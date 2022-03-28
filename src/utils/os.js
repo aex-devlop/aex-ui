@@ -472,7 +472,7 @@ const getBrowserInfo = (baseInfo) => {
 	return browserVersion;
 };
 export const getDeviceInfo = () => {
-	if (!Vue.prototype.$isServer) return {};
+	if (Vue.prototype.$isServer) return {};
 	let baseInfo = matchInfoMap();
 	return {
 		deviceType: baseInfo.device, // 设备类型
