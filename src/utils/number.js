@@ -35,16 +35,17 @@ export const clearzero = (number) => {
 export const zeroize = (number, digits, isFill = true) => {
 	if (isNaN(number)) {
 		console.warn(`zeroize 转换失败: ${number} 参数非数字格式！`);
-		return `0.${'0'.repeat(digits)}`;
+		return digits > 0 ? `0.${'0'.repeat(digits)}` : 0;
 	}
 	let _number = exponentToNumber(number);
 	if (`${_number}`.indexOf('.') == -1) {
-		if (isFill) {
+		if (isFill && digits > 0) {
 			return `${_number}.${'0'.repeat(digits)}`;
 		}
 		return _number;
 	}
 	return `${_number}`.replace(/(\d+)\.(\d+)/, (all, $1, $2) => {
+		if (digits <= 0) return $1;
 		const len = digits - $2.length;
 		const point = len > 0 ? `${$2}${isFill ? '0'.repeat(len) : ''}` : $2.slice(0, digits);
 		return `${$1}.${point}`;

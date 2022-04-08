@@ -17,6 +17,7 @@ import { t, use } from 'aex-ui/src/locale';
 import en from 'aex-ui/src/locale/lang/en';
 import zh from 'aex-ui/src/locale/lang/zh-CN';
 import copy from 'copy-to-clipboard';
+import { exponentToNumber, clearzero, zeroize, thousands } from 'aex-ui/src/utils/number'
 export default {
 	name: 'App',
 	mixins: [Locale],
@@ -67,6 +68,10 @@ export default {
 				this.loading = false;
 			}, 2000);
 		}
+	},
+	mounted(){
+		let num = zeroize('12.1234',0)
+		console.log('zeroize',num)
 	}
 };
 </script>
