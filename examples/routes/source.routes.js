@@ -63,6 +63,12 @@ export default {
 			name: 'telegram',
 			path: 'telegram',
 			component: () => import('../docs/source/telegram/index.md')
+		},
+		{
+			title: '前端与Nginx',
+			name: 'FE_and_nginx',
+			path: 'FE_and_nginx',
+			component: () => import('../docs/source/FE_and_nginx/index.md')
 		}
 	]
 };

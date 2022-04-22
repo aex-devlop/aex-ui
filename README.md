@@ -70,6 +70,7 @@ yarn build:doc
 输出目录: /examples/aex-ui/
 ```
 
+<!-- "deploy": "chmod +x ./deploy.sh && ./deploy.sh", -->
 <!-- copy-to-clipboard -->
 <!-- https://github.com/sudodoki/copy-to-clipboard#readme -->
   <!-- // "pagination": "./packages/pagination/index.js" -->
