@@ -1,4 +1,5 @@
 # 序言
+
 由于 nginx 占市场 web 服务器的市场占有份额长期处于第一位，再加上它配置简单且易学，它成为最受欢迎的web服务器之一。前端部分就更简单了，配合一定的工具，你就能出色的完成常规的部署工作并惊艳你的同事。
 
 ## 安装 Nginx （有条件的可以用 Docker 安装镜像）
@@ -6,7 +7,7 @@
 https://nginx.org/en/download.html
 （没错，这个网站只是看起来破旧一些。）
 
-![](./img/nginx下载.png)
+![](./img/1.png)
 
 然后 windows 用户下载这个链接。
 
@@ -16,17 +17,17 @@ https://nginx.org/en/download.html
 start nginx
 ```
 
-![](./img/nginx启动.png)
+![](./img/2.png)
 
 **No news is good news!** （没有事情发生就是好事！说明 Nginx 服务已经启动）
 
 打开 localhost 不需要端口号（因为默认是 80）
 
-![](./img/hello_world.png)
+![](./img/3.png)
 
 PS：如果你还在怀疑它是否已经启动？你可以在任务管理器中找到相关进程，如果 `nginx -s stop` 命令无法关掉就用任务管理器把进程杀掉。
 
-![](./img/任务管理器.png)
+![](./img/4.png)
 
 ## 了解配置（侧重前端）
 
@@ -38,7 +39,9 @@ PS：先给大家安利一个 nginx 配置工具网站 http://nginxconfig.io/ �
 
 ### 1，站点名称
 
-```http.server.server_name```
+```http.server.server_name
+
+```
 
 这个是 DNS 解析到 ip 并访问我们服务器上的哪个网站（其实就是**域名**），一般我们开发环境常用 localhost 。
 
@@ -60,7 +63,7 @@ PS：我们在配置 SSL/TSL 证书时一般会要做强制重定向（即： 80
 
 但是 history 模式需要运维的支持。否则就会如上述--浏览器会向服务器发起请求，但服务器并没有相关的资源，最后就会报 404 了。
 
-![](./img/history路由在未配置的nginx下.png)
+![](./img/5.png)
 
 注意：history 模式下，路由切换是通过 history.pushState() 去更新路由的，且更新后不会向服务器请求。要手动刷新页面后才会有 404 .
 
@@ -78,7 +81,7 @@ location / {
 }
 ```
 
-![](./img/history路由在已配置的nginx下.png)
+![](./img/6.png)
 
 除此之外还有使用 **rewrite** 和 **proxy_pass** 指令重定向 api 请求到别的服务端以绕过**跨域请求限制**
 
@@ -86,7 +89,7 @@ location / {
 
 一般不处理跨域限制直接访问会：
 
-![](./img/%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82%E9%99%90%E5%88%B6.png)
+![](./img/7.png)
 
 首先我们要把 http 请求和其它请求（如：静态文静）划分清楚。
 
@@ -96,6 +99,7 @@ location / {
 将 /api/info/xxx 在 nginx 中以 /info/xxx 的形式去转发请求。
 
 相关配置：
+
 ```
 # 标点符号都不可以少
 location ^~ /api/ {
@@ -105,13 +109,13 @@ location ^~ /api/ {
 
 结果如图：
 
-![](./img/%E8%B7%A8%E5%9F%9F%E9%85%8D%E7%BD%AE%E7%BB%93%E6%9E%9C.png)
+![](./img/8.png)
 
 切记：这里是向自己发起请求，而非向远端服务器发出请求。（这是为了满足跨域限制）
 
 最终达到跨域请求的目的。
 
-**一个教训**：proxy_pass 不要代理到 https 的域名上，否则会 404 .由于时间有限，未能查明原因。
+**一个教训**：proxy_pass 不要代理到 https 的域名上，否则会 404 . 由于时间有限，未能查明原因。
 
 所有配置（nginx\conf\nginx.conf）
 
@@ -126,11 +130,9 @@ worker_processes  1;
 
 #pid        logs/nginx.pid;
 
-
 events {
     worker_connections  1024;
 }
-
 
 http {
     include       mime.types;
@@ -202,7 +204,6 @@ http {
         #}
     }
 
-
     # another virtual host using mix of IP-, name-, and port-based configuration
     #
     #server {
@@ -215,7 +216,6 @@ http {
     #        index  index.html index.htm;
     #    }
     #}
-
 
     # HTTPS server
     #
