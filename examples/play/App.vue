@@ -1,29 +1,16 @@
 <template>
 	<div id="app">
-		<!-- <div onMouseOver="this.style.color='red';" onMouseOut="this.style.color='blue';">adfasd</div> -->
-		<!-- <aex-button @click="transZH">中文</aex-button>
-		<aex-button @click="transEN">Englishs</aex-button>
-		<div>{{ t(`aex.empty.coming_soon`) }}</div> -->
-		<aex-load-more
-			:loading="loading"
-			:has-more="true"
-			@click="onLoad"
-		></aex-load-more>
+		<aex-button @click='test'>CLICK</aex-button>
 	</div>
 </template>
 <script>
-import Locale from 'aex-ui/src/mixins/locale';
-import { t, use } from 'aex-ui/src/locale';
-import en from 'aex-ui/src/locale/lang/en';
-import zh from 'aex-ui/src/locale/lang/zh-CN';
 import copy from 'copy-to-clipboard';
 import { exponentToNumber, clearzero, zeroize, thousands } from 'aex-ui/src/utils/number'
 export default {
 	name: 'App',
-	mixins: [Locale],
 	data() {
 		return {
-			loading: false,
+			loading: true,
 			tableData: [
 				{
 					date: '2016-05-02',
@@ -51,27 +38,48 @@ export default {
 	components: {},
 	computed: {},
 	methods: {
-		transZH() {
-			use(zh);
-			this.$forceUpdate();
+		test() {
+			let as = this.$msgbox({
+                    title: 'API确认111',
+                    message: 'API Key跟您的账号安全紧密相关，凡知晓您API',
+                    confirmButtonText: '确定',
+                    // callback: action => {
+                    //     this.$message({
+                    //         message: `action: ${ action }`
+                    //     });
+                    // }
+                });
+						setTimeout(() => {
+this.$msgbox.close()			
+							this.$msgbox({
+							        title: 'API确认22222',
+							        message: 'API Key跟您的账号安全紧sdfsadfasdf密相关，凡知晓您API',
+							        confirmButtonText: '确定',
+							        // callback: action => {
+							        //     this.$message({
+							        //         message: `action: ${ action }`
+							        //     });
+							        // }
+							    });
+		}, 1000);
+						setTimeout(() => {
+this.$msgbox.close()			
+							this.$msgbox({
+							        title: 'API确认233332',
+							        message: 'API Key跟您的账号安全紧sdfsadfasdf密相关，凡知晓您API',
+							        confirmButtonText: '确定',
+							        // callback: action => {
+							        //     this.$message({
+							        //         message: `action: ${ action }`
+							        //     });
+							        // }
+							    });
+		}, 1500);
+				
 		},
-		transEN() {
-			use(en);
-			this.$forceUpdate();
-		},
-		captch() {
-			console.log('nlnlkn');
-		},
-		onLoad() {
-			this.loading = true;
-			setTimeout(() => {
-				this.loading = false;
-			}, 2000);
-		}
 	},
 	mounted(){
-		let num = zeroize('12.1234',0)
-		console.log('zeroize',num)
+		
 	}
 };
 </script>
