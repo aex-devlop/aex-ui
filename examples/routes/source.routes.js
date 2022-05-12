@@ -69,6 +69,12 @@ export default {
 			name: 'FE_and_nginx',
 			path: 'FE_and_nginx',
 			component: () => import('../docs/source/FE_and_nginx/index.md')
+		},
+		{
+			title: 'decimal使用',
+			name: 'decimal',
+			path: 'decimal',
+			component: () => import('../docs/source/decimal.md')
 		}
 	]
 };
