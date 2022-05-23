@@ -2,197 +2,210 @@
 @import '../common/transition';
 
 .aex-date-editor {
-    position: relative;
-    display: inline-block;
-    text-align: left;
+	position: relative;
+	display: inline-flex;
+	text-align: left;
 
-    &.aex-input,
-    &.aex-input__inner {
-        width: 220px;
-    }
+	&.aex-input__inner {
+		border: @--input-border;
+		transition: @--border-transition-base;
 
-    &--monthrange {
-        &.aex-input,
-        &.aex-input__inner {
-            width: 300px;
-        }
-    }
+		&:hover {
+			border-color: @--input-hover-border;
+		}
 
-    &--daterange,
-    &--timerange {
-        &.aex-input,
-        &.aex-input__inner {
-            width: 350px;
-        }
-    }
+		&:focus {
+			outline: none;
+			border-color: @--input-focus-border;
+		}
+	}
+	&.aex-input,
+	&.aex-input__inner {
+		width: 220px;
+	}
 
-    &--datetimerange {
-        &.aex-input,
-        &.aex-input__inner {
-            width: 400px;
-        }
-    }
+	&--monthrange {
+		&.aex-input,
+		&.aex-input__inner {
+			width: 300px;
+		}
+	}
 
-    &--dates {
-        .aex-input__inner {
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-    }
+	&--daterange,
+	&--timerange {
+		&.aex-input,
+		&.aex-input__inner {
+			width: 350px;
+		}
+	}
 
-    .aex-icon-error {
-        cursor: pointer;
-    }
+	&--datetimerange {
+		&.aex-input,
+		&.aex-input__inner {
+			width: 400px;
+		}
+	}
 
-    .aex-range__icon {
-        font-size: 14px;
-        margin-left: -5px;
-        color: @--placeholder-color;
-        float: left;
-        line-height: 32px;
-    }
+	&--dates {
+		.aex-input__inner {
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+	}
 
-    .aex-range-input {
-        appearance: none;
-        border: none;
-        outline: none;
-        display: inline-block;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        width: 39%;
-        text-align: center;
-        font-size: @--font-size-base;
-        color: @--font-color-base;
+	.aex-icon-error {
+		cursor: pointer;
+	}
 
-        &::placeholder {
-            color: @--placeholder-color;
-        }
-    }
+	.aex-range__icon {
+		font-size: 14px;
+		margin-left: -5px;
+		color: @--placeholder-color;
+		float: left;
+		line-height: 32px;
+	}
 
-    .aex-range-separator {
-        display: inline-block;
-        height: 100%;
-        padding: 0 5px;
-        margin: 0;
-        text-align: center;
-        line-height: 32px;
-        font-size: 14px;
-        width: 5%;
-        color: @--font-color-base;
-    }
+	.aex-range-input {
+		appearance: none;
+		border: none;
+		outline: none;
+		display: inline-block;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		width: 39%;
+		text-align: center;
+		font-size: @--font-size-base;
+		color: @--font-color-base;
 
-    .aex-range__close-icon {
-        font-size: 14px;
-        color: @--placeholder-color;
-        width: 25px;
-        display: inline-block;
-        float: right;
-        line-height: 32px;
-    }
+		&::placeholder {
+			color: @--placeholder-color;
+		}
+	}
+
+	.aex-range-separator {
+		display: inline-block;
+		height: 100%;
+		padding: 0 5px;
+		margin: 0;
+		text-align: center;
+		line-height: 32px;
+		font-size: 14px;
+		width: 5%;
+		color: @--font-color-base;
+	}
+
+	.aex-range__close-icon {
+		font-size: 14px;
+		color: @--placeholder-color;
+		width: 25px;
+		display: inline-block;
+		float: right;
+		line-height: 32px;
+	}
 }
 
 .aex-range-editor {
-    &.aex-input__inner {
-        display: inline-flex;
-        align-items: center;
-        padding: 3px 10px;
-    }
+	&.aex-input__inner {
+		display: inline-flex;
+		align-items: center;
+		padding: 3px 10px;
+	}
 
-    .aex-range-input {
-        line-height: 1;
-    }
+	.aex-range-input {
+		line-height: 1;
+	}
 
-    &.is-active {
-        border-color: @--color-primary;
+	&.is-active {
+		border-color: @--color-primary;
 
-        &:hover {
-            border-color: @--color-primary;
-        }
-    }
+		&:hover {
+			border-color: @--color-primary;
+		}
+	}
 
-    &--medium {
-        &.aex-input__inner {
-            height: @--input-medium-height;
-        }
+	&--medium {
+		&.aex-input__inner {
+			height: @--input-medium-height;
+		}
 
-        .aex-range-separator {
-            line-height: 28px;
-            font-size: @--input-medium-font-size;
-        }
+		.aex-range-separator {
+			line-height: 28px;
+			font-size: @--input-medium-font-size;
+		}
 
-        .aex-range-input {
-            font-size: @--input-medium-font-size;
-        }
+		.aex-range-input {
+			font-size: @--input-medium-font-size;
+		}
 
-        .aex-range__icon,
-        .aex-range__close-icon {
-            line-height: 28px;
-        }
-    }
+		.aex-range__icon,
+		.aex-range__close-icon {
+			line-height: 28px;
+		}
+	}
 
-    &--small {
-        &.aex-input__inner {
-            height: @--input-small-height;
-        }
+	&--small {
+		&.aex-input__inner {
+			height: @--input-small-height;
+		}
 
-        .aex-range-separator {
-            line-height: 24px;
-            font-size: @--input-small-font-size;
-        }
+		.aex-range-separator {
+			line-height: 24px;
+			font-size: @--input-small-font-size;
+		}
 
-        .aex-range-input {
-            font-size: @--input-small-font-size;
-        }
+		.aex-range-input {
+			font-size: @--input-small-font-size;
+		}
 
-        .aex-range__icon,
-        .aex-range__close-icon {
-            line-height: 24px;
-        }
-    }
+		.aex-range__icon,
+		.aex-range__close-icon {
+			line-height: 24px;
+		}
+	}
 
-    &--mini {
-        &.aex-input__inner {
-            height: @--input-mini-height;
-        }
+	&--mini {
+		&.aex-input__inner {
+			height: @--input-mini-height;
+		}
 
-        .aex-range-separator {
-            line-height: 20px;
-            font-size: @--input-mini-font-size;
-        }
+		.aex-range-separator {
+			line-height: 20px;
+			font-size: @--input-mini-font-size;
+		}
 
-        .aex-range-input {
-            font-size: @--input-mini-font-size;
-        }
+		.aex-range-input {
+			font-size: @--input-mini-font-size;
+		}
 
-        .aex-range__icon,
-        .aex-range__close-icon {
-            line-height: 20px;
-        }
-    }
+		.aex-range__icon,
+		.aex-range__close-icon {
+			line-height: 20px;
+		}
+	}
 
-    &.is-disabled {
-        background-color: @--input-disabled-fill;
-        border-color: @--input-disabled-border;
-        color: @--input-disabled-color;
-        cursor: not-allowed;
+	&.is-disabled {
+		background-color: @--input-disabled-fill;
+		border-color: @--input-disabled-border;
+		color: @--input-disabled-color;
+		cursor: not-allowed;
 
-        &:hover,
-        &:focus {
-            border-color: @--input-disabled-border;
-        }
+		&:hover,
+		&:focus {
+			border-color: @--input-disabled-border;
+		}
 
-        input {
-            background-color: @--input-disabled-fill;
-            color: @--input-disabled-color;
-            cursor: not-allowed;
-            &::placeholder {
-                color: @--input-disabled-placeholder-color;
-            }
-        }
+		input {
+			background-color: @--input-disabled-fill;
+			color: @--input-disabled-color;
+			cursor: not-allowed;
+			&::placeholder {
+				color: @--input-disabled-placeholder-color;
+			}
+		}
 
-        .aex-range-separator {
-            color: @--input-disabled-color;
-        }
-    }
+		.aex-range-separator {
+			color: @--input-disabled-color;
+		}
+	}
 }

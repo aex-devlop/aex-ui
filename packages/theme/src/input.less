@@ -72,11 +72,21 @@
 }
 
 .aex-input {
-	position: relative;
+	// position: relative;
 	font-size: @--input-font-size;
-	display: inline-block;
-	width: 100%;
+	display: inline-flex;
+	// width: 100%;
+	border-radius: @--input-border-radius;
+	border: @--input-border;
+	transition: @--border-transition-base;
+
 	.mixins-scroll-bar();
+	&:hover {
+		border-color: @--input-hover-border;
+	}
+	&.is-focus {
+		border-color: @--input-focus-border;
+	}
 
 	& .aex-input__clear {
 		color: @--input-icon-color;
@@ -109,17 +119,19 @@
 		background-color: @--input-background-color;
 		background-image: none;
 		border-radius: @--input-border-radius;
-		border: @--input-border;
+		// border: @--input-border;
+		border: none;
 		box-sizing: border-box;
 		color: @--input-font-color;
-		display: inline-block;
+		// display: inline-block;
 		font-size: inherit;
 		height: @--input-height;
 		line-height: @--input-height;
 		outline: none;
 		padding: 0 15px;
-		transition: @--border-transition-base;
+		// transition: @--border-transition-base;
 		width: 100%;
+		flex: 1;
 
 		&::-ms-reveal {
 			display: none;
@@ -129,21 +141,22 @@
 			color: @--input-placeholder-color;
 		}
 
-		&:hover {
-			border-color: @--input-hover-border;
-		}
+		// &:hover {
+		// 	border-color: @--input-hover-border;
+		// }
 
-		&:focus {
-			outline: none;
-			border-color: @--input-focus-border;
-		}
+		// &:focus {
+		// 	outline: none;
+		// 	border-color: @--input-focus-border;
+		// }
 	}
 
 	&__suffix {
-		position: absolute;
+		padding-right: 5px;
+		// position: absolute;
 		height: 100%;
-		right: 5px;
-		top: 0;
+		// right: 5px;
+		// top: 0;
 		text-align: center;
 		color: @--input-icon-color;
 		transition: all 0.3s;
@@ -155,10 +168,11 @@
 	}
 
 	&__prefix {
-		position: absolute;
+		padding-left: 5px;
+		// position: absolute;
 		height: 100%;
-		left: 5px;
-		top: 0;
+		// left: 5px;
+		// top: 0;
 		text-align: center;
 		color: @--input-icon-color;
 		transition: all 0.3s;
@@ -166,22 +180,23 @@
 
 	&__icon {
 		height: 100%;
-		width: 25px;
+		min-width: 25px;
 		text-align: center;
 		transition: all 0.3s;
 		line-height: @--input-height;
 
-		&:after {
-			content: '';
-			height: 100%;
-			width: 0;
-			display: inline-block;
-			vertical-align: middle;
-		}
+		// &:after {
+		// 	content: '';
+		// 	height: 100%;
+		// 	width: 0;
+		// 	display: inline-block;
+		// 	vertical-align: middle;
+		// }
 	}
 	&__validateIcon {
 		pointer-events: none;
 	}
+	// TODO: 好像没啥用
 	&.is-active {
 		.aex-input__inner {
 			outline: none;
@@ -219,12 +234,12 @@
 
 	&--suffix {
 		.aex-input__inner {
-			padding-right: 30px;
+			padding-right: 5px;
 		}
 	}
 	&--prefix {
 		.aex-input__inner {
-			padding-left: 30px;
+			padding-left: 5px;
 		}
 	}
 
@@ -268,42 +283,43 @@
 
 .aex-input-group {
 	line-height: normal;
-	display: inline-table;
-	width: 100%;
-	border-collapse: separate;
-	border-spacing: 0;
+	// display: inline-table;
+	// width: 100%;
+	// border-collapse: separate;
+	// border-spacing: 0;
 
-	> .aex-input__inner {
-		vertical-align: middle;
-		display: table-cell;
-	}
+	// > .aex-input__inner {
+	// 	vertical-align: middle;
+	// 	display: table-cell;
+	// }
 
 	&__append,
 	&__prepend {
 		// background-color: @--background-color-base;
 		color: @--color-gray-light-2;
-		vertical-align: middle;
-		display: table-cell;
-		position: relative;
-		border: @--input-border;
+		// vertical-align: middle;
+		// display: table-cell;
+		// position: relative;
+		// border-right: @--input-border;
 		border-radius: @--input-border-radius;
-		padding: 0 20px;
-		width: 1px;
-		white-space: nowrap;
+
+		// padding: 0 20px;
+		// width: 1px;
+		// white-space: nowrap;
 		overflow: hidden;
 
-		&:focus {
-			outline: none;
-		}
-
+		// &:focus {
+		// 	outline: none;
+		// }
 		.aex-select,
 		.aex-button {
-			display: inline-block;
-			margin: -10px -20px;
+			// display: inline-block;
+			// margin: -10px -20px;
 
 			&:hover,
 			&:focus {
 				background-color: @--color-primary-light-4;
+				border: none;
 			}
 			&:active {
 				background-color: @--color-primary-light-3;
@@ -324,38 +340,42 @@
 		.aex-button,
 		.aex-input {
 			font-size: inherit;
+			border: none;
+		}
+		.aex-input__inner {
+			width: 100%;
 		}
 	}
 
 	&__prepend {
-		border-right: 0;
+		border-right: @--input-border;
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
 	}
 	&__append {
-		border-left: 0;
+		border-left: @--input-border;
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 	}
 
-	&--prepend {
-		.aex-input__inner {
-			border-top-left-radius: 0;
-			border-bottom-left-radius: 0;
-		}
-		.aex-select .aex-input.is-focus .aex-input__inner {
-			border-color: transparent;
-		}
-	}
-	&--append {
-		.aex-input__inner {
-			border-top-right-radius: 0;
-			border-bottom-right-radius: 0;
-		}
-		.aex-select .aex-input.is-focus .aex-input__inner {
-			border-color: transparent;
-		}
-	}
+	// &--prepend {
+	// 	.aex-input__inner {
+	// 		border-top-left-radius: 0;
+	// 		border-bottom-left-radius: 0;
+	// 	}
+	// 	.aex-select .aex-input.is-focus .aex-input__inner {
+	// 		border-color: transparent;
+	// 	}
+	// }
+	// &--append {
+	// 	.aex-input__inner {
+	// 		border-top-right-radius: 0;
+	// 		border-bottom-right-radius: 0;
+	// 	}
+	// 	.aex-select .aex-input.is-focus .aex-input__inner {
+	// 		border-color: transparent;
+	// 	}
+	// }
 }
 
 // clear 兼容IE

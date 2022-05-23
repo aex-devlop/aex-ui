@@ -4,6 +4,7 @@
 			type === 'textarea' ? 'aex-textarea' : 'aex-input',
 			inputSize ? 'aex-input--' + inputSize : '',
 			{
+				'is-focus': focused,
 				'is-disabled': inputDisabled,
 				'is-exceed': inputExceed,
 				'aex-input-group': $slots.prepend || $slots.append,
@@ -21,6 +22,11 @@
 			<div class="aex-input-group__prepend" v-if="$slots.prepend">
 				<slot name="prepend"></slot>
 			</div>
+			<!-- 前置内容 @keydown="handleKeydown"-->
+			<span class="aex-input__prefix" v-if="$slots.prefix || prefixIcon">
+				<slot name="prefix"></slot>
+				<i class="aex-input__icon" v-if="prefixIcon" :class="prefixIcon"> </i>
+			</span>
 			<input
 				:tabindex="tabindex"
 				v-if="type !== 'textarea'"
@@ -42,11 +48,7 @@
 				@keydown="handleKeydown"
 				:aria-label="label"
 			/>
-			<!-- 前置内容 @keydown="handleKeydown"-->
-			<span class="aex-input__prefix" v-if="$slots.prefix || prefixIcon">
-				<slot name="prefix"></slot>
-				<i class="aex-input__icon" v-if="prefixIcon" :class="prefixIcon"> </i>
-			</span>
+
 			<!-- 后置内容 -->
 			<span class="aex-input__suffix" v-if="getSuffixVisible()">
 				<span class="aex-input__suffix-inner">

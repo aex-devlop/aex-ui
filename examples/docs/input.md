@@ -67,20 +67,20 @@ Vue.use(Input)
 
 ```html
 <aex-row :gutter='30'>
-    <aex-col :span='4'>
+    <aex-col :span='5'>
         <aex-input v-model="input" placeholder="搜索" prefix-icon="aex-icon-search"></aex-input>
     </aex-col>
-    <aex-col :span='4'>
+    <aex-col :span='5'>
         <aex-input v-model="input1" placeholder="请输入金额" suffix-icon='aex-icon-lock'></aex-input>
     </aex-col>
-    <aex-col :span='4'>
+    <aex-col :span='5'>
         <aex-input v-model="input2" placeholder="slot 方式">
             <i slot='prefix' class='aex-input__icon aex-icon-search'></i>
         </aex-input>
     </aex-col>
-    <aex-col :span='4'>
-        <aex-input v-model="input3" placeholder="slot 自定义">
-            <i slot='prefix' class='aex-input__icon'>US</i>
+    <aex-col :span='5'>
+        <aex-input v-model="input3" placeholder="自定义" prefix-icon='aex-icon-lock'>
+            <span slot='suffix' class='aex-input__icon'>BTC/USDT</span>
         </aex-input>
     </aex-col>
 </aex-row>
@@ -188,14 +188,14 @@ Vue.use(Input)
         </aex-input>
     </aex-col>
     <aex-col :span='8'>
-        <aex-input placeholder="限额 15 - 7,000" v-model="input1" style="width:300px">
+        <aex-input placeholder="限额 15 - 7,000" v-model="input1" style="width:400px">
             <template slot="prepend">
                 <aex-select v-model="inputSelect" placeholder="请选择" style="width:120px">
                     <aex-option label="按金额购买" value="1" />
                     <aex-option label="按数量购买" value="2" />
                 </aex-select>
             </template>
-            <span slot="suffix" class="aex-input__icon" style="marginRight:10px">USDT</span>
+            <span slot="suffix" class="aex-input__icon">USDT</span>
         </aex-input>
     </aex-col>
     <aex-col :span='8'>

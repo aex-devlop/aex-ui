@@ -2,187 +2,174 @@
 @import 'input';
 
 .aex-input-number {
-    position: relative;
-    display: inline-block;
-    width: 180px;
-    line-height: calc(@--input-height - 2px);
+	position: relative;
+	display: inline-block;
+	width: 180px;
+	line-height: @--input-height;
 
-    .aex-input {
-        display: block;
+	.aex-input {
+		display: block;
 
-        &__inner {
-            -webkit-appearance: none;
-            padding-left: calc(@--input-height + 10px);
-            padding-right: calc(@--input-height + 10px);
-            text-align: center;
-        }
-    }
+		&__inner {
+			-webkit-appearance: none;
+			text-align: center;
+			width: 100%;
+		}
+	}
 
-    &__increase,
-    &__decrease {
-        position: absolute;
-        z-index: 1;
-        top: 1px;
-        width: @--input-height;
-        height: auto;
-        text-align: center;
-        background: @--background-color-base;
-        color: @--color-gray-light-1;
-        cursor: pointer;
-        font-size: 13px;
+	&__increase,
+	&__decrease {
+		position: absolute;
+		z-index: 1;
+		top: 1px;
+		width: @--input-height;
+		height: @--input-height;
+		text-align: center;
+		background: @--background-color-base;
+		color: @--color-gray-light-1;
+		cursor: pointer;
+		font-size: 13px;
 
-        &:hover {
-            color: @--color-primary;
+		&:hover {
+			color: @--color-primary;
 
-            &:not(.is-disabled) ~ .aex-input .aex-input__inner:not(.is-disabled) {
-                border-color: @--input-focus-border;
-            }
-        }
+			&:not(.is-disabled) ~ .aex-input .aex-input__inner:not(.is-disabled) {
+				border-color: @--input-focus-border;
+			}
+		}
 
-        &.is-disabled {
-            color: @--disabled-color-base;
-            cursor: not-allowed;
-        }
-    }
+		&.is-disabled {
+			color: @--disabled-color-base;
+			cursor: not-allowed;
+		}
+	}
 
-    &__increase {
-        right: 1px;
-        border-radius: 0 @--border-radius-base @--border-radius-base 0;
-        border-left: @--border-base;
-    }
+	&__increase {
+		right: 1px;
+		border-radius: 0 @--border-radius-base @--border-radius-base 0;
+		border-left: @--border-base;
+	}
 
-    &__decrease {
-        left: 1px;
-        border-radius: @--border-radius-base 0 0 @--border-radius-base;
-        border-right: @--border-base;
-    }
+	&__decrease {
+		left: 1px;
+		border-radius: @--border-radius-base 0 0 @--border-radius-base;
+		border-right: @--border-base;
+	}
 
-    &.is-disabled {
-        &__increase,
-        &__decrease {
-            border-color: @--disabled-border-base;
-            color: @--disabled-border-base;
+	&.is-disabled {
+		&__increase,
+		&__decrease {
+			border-color: @--disabled-border-base;
+			color: @--disabled-border-base;
 
-            &:hover {
-                color: @--disabled-border-base;
-                cursor: not-allowed;
-            }
-        }
-    }
+			&:hover {
+				color: @--disabled-border-base;
+				cursor: not-allowed;
+			}
+		}
+	}
 
-    &--medium {
-        width: 200px;
-        line-height: calc(@--input-medium-height - 2px);
+	&--medium {
+		width: 160px;
+		line-height: @--input-medium-height;
 
-        &__increase,
-        &__decrease {
-            width: @--input-medium-height;
-            font-size: @--input-medium-font-size;
-        }
+		.aex-input-number__increase,
+		.aex-input-number__decrease {
+			width: @--input-medium-height;
+			height: @--input-medium-height;
+			font-size: @--input-medium-font-size;
+		}
+	}
 
-        .aex-input__inner {
-            padding-left: calc(@--input-medium-height + 7px);
-            padding-right: calc(@--input-medium-height + 7px);
-        }
-    }
+	&--small {
+		width: 130px;
+		line-height: @--input-small-height;
 
-    &--small {
-        width: 130px;
-        line-height: calc(@--input-small-height - 2px);
+		.aex-input-number__increase,
+		.aex-input-number__decrease {
+			width: @--input-small-height;
+			height: @--input-small-height;
+			font-size: @--input-small-font-size;
 
-        &__increase,
-        &__decrease {
-            width: @--input-small-height;
-            font-size: @--input-small-font-size;
+			[class*='aex-icon'] {
+				transform: scale(0.9);
+			}
+		}
+	}
 
-            [class*='aex-icon'] {
-                transform: scale(0.9);
-            }
-        }
+	&--mini {
+		width: 130px;
+		line-height: @--input-mini-height;
 
-        .aex-input__inner {
-            padding-left: calc(@--input-small-height + 7px);
-            padding-right: calc(@--input-small-height + 7px);
-        }
-    }
+		.aex-input-number__increase,
+		.aex-input-number__decrease {
+			width: @--input-mini-height;
+			height: @--input-mini-height;
+			font-size: @--input-mini-font-size;
 
-    &--mini {
-        width: 130px;
-        line-height: calc(@--input-mini-height - 2px);
+			[class*='aex-icon'] {
+				transform: scale(0.8);
+			}
+		}
+	}
 
-        &__increase,
-        &__decrease {
-            width: @--input-mini-height;
-            font-size: @--input-mini-font-size;
+	&.is-without-controls {
+		.aex-input__inner {
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+	}
 
-            [class*='aex-icon'] {
-                transform: scale(0.8);
-            }
-        }
+	&.is-controls-right {
+		.aex-input__inner {
+			padding-left: 15px;
+			padding-right: calc(@--input-height + 10px);
+		}
 
-        .aex-input__inner {
-            padding-left: calc(@--input-mini-height + 7px);
-            padding-right: calc(@--input-mini-height + 7px);
-        }
-    }
+		.aex-input-number__increase,
+		.aex-input-number__decrease {
+			height: auto;
+			line-height: calc((@--input-height - 2px) / 2);
 
-    &.is-without-controls {
-        .aex-input__inner {
-            padding-left: 15px;
-            padding-right: 15px;
-        }
-    }
+			[class*='aex-icon'] {
+				transform: scale(0.8);
+			}
+		}
 
-    &.is-controls-right {
-        .aex-input__inner {
-            padding-left: 15px;
-            padding-right: calc(@--input-height + 10px);
-        }
+		.aex-input-number__increase {
+			border-radius: 0 @--border-radius-base 0 0;
+			border-bottom: @--border-base;
+		}
 
-        .aex-input-number__increase,
-        .aex-input-number__decrease {
-            height: auto;
-            line-height: calc((@--input-height - 2px) / 2);
+		.aex-input-number__decrease {
+			right: 1px;
+			bottom: 1px;
+			top: auto;
+			left: auto;
+			border-right: none;
+			border-left: @--border-base;
+			border-radius: 0 0 @--border-radius-base 0;
+		}
 
-            [class*='aex-icon'] {
-                transform: scale(0.8);
-            }
-        }
+		&[class*='medium'] {
+			[class*='increase'],
+			[class*='decrease'] {
+				line-height: calc((@--input-medium-height - 2px) / 2);
+			}
+		}
 
-        .aex-input-number__increase {
-            border-radius: 0 @--border-radius-base 0 0;
-            border-bottom: @--border-base;
-        }
+		&[class*='small'] {
+			[class*='increase'],
+			[class*='decrease'] {
+				line-height: calc((@--input-small-height - 2px) / 2);
+			}
+		}
 
-        .aex-input-number__decrease {
-            right: 1px;
-            bottom: 1px;
-            top: auto;
-            left: auto;
-            border-right: none;
-            border-left: @--border-base;
-            border-radius: 0 0 @--border-radius-base 0;
-        }
-
-        &[class*='medium'] {
-            [class*='increase'],
-            [class*='decrease'] {
-                line-height: calc((@--input-medium-height - 2px) / 2);
-            }
-        }
-
-        &[class*='small'] {
-            [class*='increase'],
-            [class*='decrease'] {
-                line-height: calc((@--input-small-height - 2px) / 2);
-            }
-        }
-
-        &[class*='mini'] {
-            [class*='increase'],
-            [class*='decrease'] {
-                line-height: calc((@--input-mini-height - 2px) / 2);
-            }
-        }
-    }
+		&[class*='mini'] {
+			[class*='increase'],
+			[class*='decrease'] {
+				line-height: calc((@--input-mini-height - 2px) / 2);
+			}
+		}
+	}
 }
