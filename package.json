@@ -1,6 +1,6 @@
 {
   "name": "aex-ui",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Aex UI Library for Vue.js.",
   "main": "lib/aex-ui.common.js",
   "files": [
