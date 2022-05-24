@@ -75,7 +75,8 @@
 	// position: relative;
 	font-size: @--input-font-size;
 	display: inline-flex;
-	// width: 100%;
+	width: 100%;
+	height: @--input-height;
 	border-radius: @--input-border-radius;
 	border: @--input-border;
 	transition: @--border-transition-base;
@@ -125,8 +126,8 @@
 		color: @--input-font-color;
 		// display: inline-block;
 		font-size: inherit;
-		height: @--input-height;
-		line-height: @--input-height;
+		height: 100%;
+		// line-height: @--input-height;
 		outline: none;
 		padding: 0 15px;
 		// transition: @--border-transition-base;
@@ -161,6 +162,8 @@
 		color: @--input-icon-color;
 		transition: all 0.3s;
 		pointer-events: none;
+		display: inline-flex;
+		align-items: center;
 	}
 
 	&__suffix-inner {
@@ -176,14 +179,16 @@
 		text-align: center;
 		color: @--input-icon-color;
 		transition: all 0.3s;
+		display: inline-flex;
+		align-items: center;
 	}
 
 	&__icon {
-		height: 100%;
+		// height: 100%;
 		min-width: 25px;
 		text-align: center;
 		transition: all 0.3s;
-		line-height: @--input-height;
+		// line-height: @--input-height;
 
 		// &:after {
 		// 	content: '';
@@ -245,39 +250,39 @@
 
 	&--medium {
 		font-size: @--input-medium-font-size;
+		height: @--input-medium-height;
 
-		.aex-input__inner {
-			height: @--input-medium-height;
-			line-height: @--input-medium-height;
-		}
+		// .aex-input__inner {
+		// 	line-height: @--input-medium-height;
+		// }
 
-		.aex-input__icon {
-			line-height: @--input-medium-height;
-		}
+		// .aex-input__icon {
+		// 	line-height: @--input-medium-height;
+		// }
 	}
 	&--small {
 		font-size: @--input-small-font-size;
+		height: @--input-small-height;
 
-		.aex-input__inner {
-			height: @--input-small-height;
-			line-height: @--input-small-height;
-		}
+		// .aex-input__inner {
+		// 	line-height: @--input-small-height;
+		// }
 
-		.aex-input__icon {
-			line-height: @--input-small-height;
-		}
+		// .aex-input__icon {
+		// 	line-height: @--input-small-height;
+		// }
 	}
 	&--mini {
 		font-size: @--input-mini-font-size;
+		height: @--input-mini-height;
 
-		.aex-input__inner {
-			height: @--input-mini-height;
-			line-height: @--input-mini-height;
-		}
+		// .aex-input__inner {
+		// 	line-height: @--input-mini-height;
+		// }
 
-		.aex-input__icon {
-			line-height: @--input-mini-height;
-		}
+		// .aex-input__icon {
+		// 	line-height: @--input-mini-height;
+		// }
 	}
 }
 
