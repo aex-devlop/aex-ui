@@ -17,7 +17,7 @@
 * 轮播图: swiper
 * 截图工具: html2canvas
 * 模拟数据: mockjs
-* CDN服务: 腾讯云
+* CDN服务: 腾讯云 【加速域名：https://cdn.aex.news】
 
 ### 静态资源服务
 

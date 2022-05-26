@@ -8,23 +8,24 @@
 				<aex-menu-item index="/source/articles">资源</aex-menu-item>
 				<aex-menu-item index="/plugins/base">插件</aex-menu-item>
 			</aex-menu>
+			<div class="doc-header-version">最新版本：{{ version }}</div>
 		</div>
 		<div class="doc-body">
 			<router-view></router-view>
 		</div>
 		<!-- <Lantern></Lantern> -->
-		<Bingdundun></Bingdundun>
+		<!-- <Bingdundun></Bingdundun> -->
 	</div>
 </template>
 
 <script>
-import Lantern from './components/lantern.vue';
-import Bingdundun from './components/bingdundun.vue';
+// import Lantern from './components/lantern.vue';
+// import Bingdundun from './components/bingdundun.vue';
 export default {
 	name: 'App',
-	components: { Lantern, Bingdundun },
+	// components: { Lantern, Bingdundun },
 	data() {
-		return { activeIndex: '/components/guide' };
+		return { activeIndex: '/components/guide', version: require('../package.json').version };
 	},
 	mounted() {
 		// L2Dwidget.init({
@@ -65,6 +66,9 @@ export default {
 		> .aex-menu--horizontal {
 			flex: 1;
 			border: none !important;
+		}
+		&-version {
+			padding: 0 30px;
 		}
 	}
 	&-body {
