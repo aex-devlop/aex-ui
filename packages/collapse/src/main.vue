@@ -38,20 +38,20 @@ export default {
 	},
 
 	methods: {
-		setActiveNames(activeNames) {
+		setActiveNames(activeNames, currentName, isOpen) {
 			activeNames = [].concat(activeNames);
 			let value = this.accordion ? activeNames[0] : activeNames;
 			this.activeNames = activeNames;
-			this.$emit('input', value);
-			this.$emit('change', value);
+			// this.$emit('input', value);
+			this.$emit('change', value, currentName, isOpen);
 		},
 		handleItemClick(item) {
+			let isOpen = true;
 			if (this.accordion) {
 				this.setActiveNames(
-					(this.activeNames[0] || this.activeNames[0] === 0) &&
-						this.activeNames[0] === item.name
-						? ''
-						: item.name
+					(this.activeNames[0] || this.activeNames[0] === 0) && this.activeNames[0] === item.name ? '' : item.name,
+					item.name,
+					this.activeNames[0] === item.name
 				);
 			} else {
 				let activeNames = this.activeNames.slice(0);
@@ -59,10 +59,11 @@ export default {
 
 				if (index > -1) {
 					activeNames.splice(index, 1);
+					isOpen = false;
 				} else {
 					activeNames.push(item.name);
 				}
-				this.setActiveNames(activeNames);
+				this.setActiveNames(activeNames, item.name, isOpen);
 			}
 		}
 	},

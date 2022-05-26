@@ -1,5 +1,13 @@
 ## Collapse 折叠面板
 
+### 按需引入
+
+```
+import { Collapse,CollapseItem } from 'aex-ui';
+Vue.use(Collapse)
+Vue.use(CollapseItem)
+```
+
 通过折叠面板收纳内容区域
 
 ### 基础用法
@@ -9,7 +17,7 @@
 :::demo
 
 ```html
-<aex-collapse v-model="activeNames" @change="handleChange">
+<aex-collapse accordion :value="activeNames" @change="handleChange">
     <aex-collapse-item title="一致性 Consistency" name="1">
         <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
         <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
@@ -36,8 +44,8 @@
             };
         },
         methods: {
-            handleChange(val) {
-                console.log(val);
+            handleChange(values, currentName, open) {
+                console.log(values, currentName, open);
             }
         }
     }
