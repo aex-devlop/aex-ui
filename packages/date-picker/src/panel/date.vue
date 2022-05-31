@@ -1,9 +1,5 @@
 <template>
-	<transition
-		name="aex-zoom-in-top"
-		@after-enter="handleEnter"
-		@after-leave="handleLeave"
-	>
+	<transition name="aex-zoom-in-top" @after-enter="handleEnter" @after-leave="handleLeave">
 		<div
 			v-show="visible"
 			class="aex-picker-panel aex-date-picker aex-popper"
@@ -39,21 +35,14 @@
 								@change="handleVisibleDateChange"
 							/>
 						</span>
-						<span
-							class="aex-date-picker__editor-wrap"
-							v-clickoutside="handleTimePickClose"
-						>
+						<span class="aex-date-picker__editor-wrap" v-clickoutside="handleTimePickClose">
 							<aex-input
 								ref="input"
 								@focus="timePickerVisible = true"
 								:placeholder="t('aex.datepicker.selectTime')"
 								:value="visibleTime"
 								size="small"
-								:suffix-icon="
-									timePickerVisible == true
-										? 'aex-icon-up-caret'
-										: 'aex-icon-down-caret'
-								"
+								:suffix-icon="timePickerVisible == true ? 'aex-icon-up-caret' : 'aex-icon-down-caret'"
 								@input="(val) => (userInputTime = val)"
 								@change="handleVisibleTimeChange"
 							/>
@@ -70,9 +59,7 @@
 					<div
 						class="aex-date-picker__header"
 						:class="{
-							'aex-date-picker__header--bordered':
-								currentView === 'year' ||
-								currentView === 'month'
+							'aex-date-picker__header--bordered': currentView === 'year' || currentView === 'month'
 						}"
 						v-show="currentView !== 'time'"
 					>
@@ -89,12 +76,7 @@
 							:aria-label="t(`aex.datepicker.prevMonth`)"
 							class="aex-picker-panel__icon-btn aex-date-picker__prev-btn aex-icon-left"
 						></button>
-						<span
-							@click="showYearPicker"
-							role="button"
-							class="aex-date-picker__header-label"
-							>{{ yearLabel }}</span
-						>
+						<span @click="showYearPicker" role="button" class="aex-date-picker__header-label">{{ yearLabel }}</span>
 						<span
 							@click="showMonthPicker"
 							v-show="currentView === 'date'"
@@ -125,9 +107,7 @@
 							:selection-mode="selectionMode"
 							:first-day-of-week="firstDayOfWeek"
 							:value="value"
-							:default-value="
-								defaultValue ? new Date(defaultValue) : null
-							"
+							:default-value="defaultValue ? new Date(defaultValue) : null"
 							:date="date"
 							:cell-class-name="cellClassName"
 							:disabled-date="disabledDate"
@@ -137,9 +117,7 @@
 							v-show="currentView === 'year'"
 							@pick="handleYearPick"
 							:value="value"
-							:default-value="
-								defaultValue ? new Date(defaultValue) : null
-							"
+							:default-value="defaultValue ? new Date(defaultValue) : null"
 							:date="date"
 							:disabled-date="disabledDate"
 						>
@@ -148,9 +126,7 @@
 							v-show="currentView === 'month'"
 							@pick="handleMonthPick"
 							:value="value"
-							:default-value="
-								defaultValue ? new Date(defaultValue) : null
-							"
+							:default-value="defaultValue ? new Date(defaultValue) : null"
 							:date="date"
 							:disabled-date="disabledDate"
 						>
@@ -159,25 +135,11 @@
 				</div>
 			</div>
 
-			<div
-				class="aex-picker-panel__footer"
-				v-show="footerVisible && currentView === 'date'"
-			>
-				<aex-button
-					size="mini"
-					type="text"
-					class="aex-picker-panel__link-btn"
-					@click="changeToNow"
-					v-show="selectionMode !== 'dates'"
-				>
+			<div class="aex-picker-panel__footer" v-show="footerVisible && currentView === 'date'">
+				<aex-button size="mini" type="text" class="aex-picker-panel__btn" @click="changeToNow" v-show="selectionMode !== 'dates'">
 					{{ t('aex.datepicker.now') }}
 				</aex-button>
-				<aex-button
-					plain
-					size="mini"
-					class="aex-picker-panel__link-btn"
-					@click="confirm"
-				>
+				<aex-button plain size="mini" class="aex-picker-panel__btn" @click="confirm">
 					{{ t('aex.datepicker.confirm') }}
 				</aex-button>
 			</div>
@@ -226,8 +188,7 @@ export default {
 			this.$nextTick((_) => {
 				const inputElm = this.$refs.input.$el;
 				if (inputElm) {
-					this.pickerWidth =
-						inputElm.getBoundingClientRect().width + 10;
+					this.pickerWidth = inputElm.getBoundingClientRect().width + 10;
 				}
 			});
 		},
@@ -248,17 +209,13 @@ export default {
 		},
 
 		timePickerVisible(val) {
-			if (val)
-				this.$nextTick(() => this.$refs.timepicker.adjustSpinners());
+			if (val) this.$nextTick(() => this.$refs.timepicker.adjustSpinners());
 		},
 
 		selectionMode(newVal) {
 			if (newVal === 'month') {
 				/* istanbul ignore next */
-				if (
-					this.currentView !== 'year' ||
-					this.currentView !== 'month'
-				) {
+				if (this.currentView !== 'year' || this.currentView !== 'month') {
 					this.currentView = 'month';
 				}
 			} else if (newVal === 'dates') {
@@ -301,16 +258,10 @@ export default {
 			if (!value) {
 				this.$emit('pick', value, ...args);
 			} else if (Array.isArray(value)) {
-				const dates = value.map((date) =>
-					this.showTime ? clearMilliseconds(date) : clearTime(date)
-				);
+				const dates = value.map((date) => (this.showTime ? clearMilliseconds(date) : clearTime(date)));
 				this.$emit('pick', dates, ...args);
 			} else {
-				this.$emit(
-					'pick',
-					this.showTime ? clearMilliseconds(value) : clearTime(value),
-					...args
-				);
+				this.$emit('pick', this.showTime ? clearMilliseconds(value) : clearTime(value), ...args);
 			}
 			this.userInputDate = null;
 			this.userInputTime = null;
@@ -369,16 +320,8 @@ export default {
 		handleTimePick(value, visible, first) {
 			if (isDate(value)) {
 				const newDate = this.value
-					? modifyTime(
-							this.value,
-							value.getHours(),
-							value.getMinutes(),
-							value.getSeconds()
-					  )
-					: modifyWithTimeString(
-							this.getDefaultValue(),
-							this.defaultTime
-					  );
+					? modifyTime(this.value, value.getHours(), value.getMinutes(), value.getSeconds())
+					: modifyWithTimeString(this.getDefaultValue(), this.defaultTime);
 				this.date = newDate;
 				this.emit(this.date, true);
 			} else {
@@ -398,11 +341,7 @@ export default {
 				this.date = modifyDate(this.date, this.year, month, 1);
 				this.emit(this.date);
 			} else {
-				this.date = changeYearMonthAndClampDate(
-					this.date,
-					this.year,
-					month
-				);
+				this.date = changeYearMonthAndClampDate(this.date, this.year, month);
 				// TODO: should emit intermediate value ??
 				// this.emit(this.date);
 				this.currentView = 'date';
@@ -412,21 +351,11 @@ export default {
 		handleDatePick(value) {
 			if (this.selectionMode === 'day') {
 				let newDate = this.value
-					? modifyDate(
-							this.value,
-							value.getFullYear(),
-							value.getMonth(),
-							value.getDate()
-					  )
+					? modifyDate(this.value, value.getFullYear(), value.getMonth(), value.getDate())
 					: modifyWithTimeString(value, this.defaultTime);
 				// change default time while out of selectableRange
 				if (!this.checkDateWithinRange(newDate)) {
-					newDate = modifyDate(
-						this.selectableRange[0][0],
-						value.getFullYear(),
-						value.getMonth(),
-						value.getDate()
-					);
+					newDate = modifyDate(this.selectableRange[0][0], value.getFullYear(), value.getMonth(), value.getDate());
 				}
 				this.date = newDate;
 				this.emit(this.date, this.showTime);
@@ -442,11 +371,7 @@ export default {
 				this.date = modifyDate(this.date, year, 0, 1);
 				this.emit(this.date);
 			} else {
-				this.date = changeYearMonthAndClampDate(
-					this.date,
-					year,
-					this.month
-				);
+				this.date = changeYearMonthAndClampDate(this.date, year, this.month);
 				// TODO: should emit intermediate value ??
 				// this.emit(this.date, true);
 				this.currentView = 'month';
@@ -456,10 +381,7 @@ export default {
 		changeToNow() {
 			// NOTE: not a permanent solution
 			//       consider disable "now" button in the future
-			if (
-				(!this.disabledDate || !this.disabledDate(new Date())) &&
-				this.checkDateWithinRange(new Date())
-			) {
+			if ((!this.disabledDate || !this.disabledDate(new Date())) && this.checkDateWithinRange(new Date())) {
 				this.date = new Date();
 				this.emit(this.date);
 			}
@@ -471,12 +393,7 @@ export default {
 			} else {
 				// value were emitted in handle{Date,Time}Pick, nothing to update here
 				// deal with the scenario where: user opens the picker, then confirm without doing anything
-				const value = this.value
-					? this.value
-					: modifyWithTimeString(
-							this.getDefaultValue(),
-							this.defaultTime
-					  );
+				const value = this.value ? this.value : modifyWithTimeString(this.getDefaultValue(), this.defaultTime);
 				this.date = new Date(value); // refresh date
 				this.emit(value);
 			}
@@ -510,11 +427,7 @@ export default {
 					event.stopPropagation();
 					event.preventDefault();
 				}
-				if (
-					keyCode === 13 &&
-					this.userInputDate === null &&
-					this.userInputTime === null
-				) {
+				if (keyCode === 13 && this.userInputDate === null && this.userInputTime === null) {
 					// Enter
 					this.emit(this.date, false);
 				}
@@ -528,24 +441,21 @@ export default {
 					40: 4,
 					37: -1,
 					39: 1,
-					offset: (date, step) =>
-						date.setFullYear(date.getFullYear() + step)
+					offset: (date, step) => date.setFullYear(date.getFullYear() + step)
 				},
 				month: {
 					38: -4,
 					40: 4,
 					37: -1,
 					39: 1,
-					offset: (date, step) =>
-						date.setMonth(date.getMonth() + step)
+					offset: (date, step) => date.setMonth(date.getMonth() + step)
 				},
 				week: {
 					38: -1,
 					40: 1,
 					37: -1,
 					39: 1,
-					offset: (date, step) =>
-						date.setDate(date.getDate() + step * 7)
+					offset: (date, step) => date.setDate(date.getDate() + step * 7)
 				},
 				day: {
 					38: -7,
@@ -562,10 +472,7 @@ export default {
 			while (Math.abs(now - newDate.getTime()) <= year) {
 				const map = mapping[mode];
 				map.offset(newDate, map[keyCode]);
-				if (
-					typeof this.disabledDate === 'function' &&
-					this.disabledDate(newDate)
-				) {
+				if (typeof this.disabledDate === 'function' && this.disabledDate(newDate)) {
 					continue;
 				}
 				this.date = newDate;
@@ -577,12 +484,7 @@ export default {
 		handleVisibleTimeChange(value) {
 			const time = parseDate(value, this.timeFormat);
 			if (time && this.checkDateWithinRange(time)) {
-				this.date = modifyDate(
-					time,
-					this.year,
-					this.month,
-					this.monthDate
-				);
+				this.date = modifyDate(time, this.year, this.month, this.monthDate);
 				this.userInputTime = null;
 				this.$refs.timepicker.value = this.date;
 				this.timePickerVisible = false;
@@ -593,18 +495,10 @@ export default {
 		handleVisibleDateChange(value) {
 			const date = parseDate(value, this.dateFormat);
 			if (date) {
-				if (
-					typeof this.disabledDate === 'function' &&
-					this.disabledDate(date)
-				) {
+				if (typeof this.disabledDate === 'function' && this.disabledDate(date)) {
 					return;
 				}
-				this.date = modifyTime(
-					date,
-					this.date.getHours(),
-					this.date.getMinutes(),
-					this.date.getSeconds()
-				);
+				this.date = modifyTime(date, this.date.getHours(), this.date.getMinutes(), this.date.getSeconds());
 				this.userInputDate = null;
 				this.resetView();
 				this.emit(this.date, true);
@@ -615,9 +509,7 @@ export default {
 			return (
 				value &&
 				!isNaN(value) &&
-				(typeof this.disabledDate === 'function'
-					? !this.disabledDate(value)
-					: true) &&
+				(typeof this.disabledDate === 'function' ? !this.disabledDate(value) : true) &&
 				this.checkDateWithinRange(value)
 			);
 		},
@@ -629,13 +521,7 @@ export default {
 		},
 
 		checkDateWithinRange(date) {
-			return this.selectableRange.length > 0
-				? timeWithinRange(
-						date,
-						this.selectableRange,
-						this.format || 'HH:mm:ss'
-				  )
-				: true;
+			return this.selectableRange.length > 0 ? timeWithinRange(date, this.selectableRange, this.format || 'HH:mm:ss') : true;
 		}
 	},
 
@@ -698,10 +584,7 @@ export default {
 			if (this.userInputTime !== null) {
 				return this.userInputTime;
 			} else {
-				return formatDate(
-					this.value || this.defaultValue,
-					this.timeFormat
-				);
+				return formatDate(this.value || this.defaultValue, this.timeFormat);
 			}
 		},
 
@@ -709,10 +592,7 @@ export default {
 			if (this.userInputDate !== null) {
 				return this.userInputDate;
 			} else {
-				return formatDate(
-					this.value || this.defaultValue,
-					this.dateFormat
-				);
+				return formatDate(this.value || this.defaultValue, this.dateFormat);
 			}
 		},
 
@@ -721,15 +601,7 @@ export default {
 			if (this.currentView === 'year') {
 				const startYear = Math.floor(this.year / 10) * 10;
 				if (yearTranslation) {
-					return (
-						startYear +
-						' ' +
-						yearTranslation +
-						' - ' +
-						(startYear + 9) +
-						' ' +
-						yearTranslation
-					);
+					return startYear + ' ' + yearTranslation + ' - ' + (startYear + 9) + ' ' + yearTranslation;
 				}
 				return startYear + ' - ' + (startYear + 9);
 			}

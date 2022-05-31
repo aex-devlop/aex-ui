@@ -31,7 +31,7 @@
 	}
 
 	&__header {
-		padding: @--dialog-padding;
+		padding: @--dialog-padding-vertical @--dialog-padding-horizontal;
 		padding-bottom: 16px;
 	}
 
@@ -39,12 +39,13 @@
 		line-height: 1;
 		font-size: @--dialog-title-font-size;
 		color: @--dialog-title-color;
+		font-weight: bold;
 	}
 
 	&__headerbtn {
 		position: absolute;
-		top: calc(@--dialog-padding / 2);
-		right: calc(@--dialog-padding / 2);
+		top: calc(@--dialog-padding-vertical / 2);
+		right: calc(@--dialog-padding-vertical / 2);
 		padding: 0;
 		background: transparent;
 		border: none;
@@ -65,14 +66,15 @@
 	}
 
 	&__body {
-		padding: 10px @--dialog-padding;
+		padding: 10px @--dialog-padding-horizontal;
+
 		color: @--dialog-content-color;
 		font-size: @--dialog-content-font-size;
 		word-break: break-all;
 	}
 
 	&__footer {
-		padding: @--dialog-padding;
+		padding: @--dialog-padding-vertical @--dialog-padding-horizontal;
 		padding-top: 14px;
 		text-align: center;
 		box-sizing: border-box;
